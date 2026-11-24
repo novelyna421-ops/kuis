@@ -1,0 +1,3664 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="briefing">
+  <title>Evaluasi TKA Ekonomi Kelas X — Pasar &amp; Keseimbangan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* 1. Briefing style tokens */
+      --background: #faf9f5;
+      --surface-container-low: #ffffff;
+      --surface-container: #f1efe8;
+      --surface-container-high: #e6e2d6;
+
+      --on-surface: #17181a;
+      --on-surface-variant: #56585c;
+
+      --outline: #17181a;
+      --outline-variant: #dedad0;
+
+      --primary: #17181a;
+      --on-primary: #faf9f5;
+      --primary-container: #f2b705;
+      --on-primary-container: #17181a;
+      --secondary: #1f4e5f;
+      --tertiary: #785008;
+      --error: #b42318;
+      --on-error: #ffffff;
+
+      --data-1: #1f4e5f;
+      --data-2: #d99000;
+      --data-3: #2b6e52;
+      --data-4: #b84a39;
+      --data-context: #c4bfb2;
+
+      --font-headline: 'Source Serif 4', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-label: 'Geist Mono', monospace;
+
+      --rounded: 0.25rem;
+      --rounded-lg: 0.375rem;
+      --rounded-full: 0.25rem;
+
+      --section-rule: 1.5px solid var(--outline);
+      --card-border: 1px solid var(--outline-variant);
+      --secondary-btn-border: 1px solid #c8c4b8;
+      --badge-radius: 2px;
+      --heading-tracking: -0.02em;
+      --label-tracking: 0.08em;
+
+      /* 3. Shared tokens */
+      --positive: #2b6e52;
+      --warning: #d99000;
+      --focus: #1f4e5f;
+
+      --positive-bg: #e8f3ed;
+      --warning-bg: #fdf3dc;
+      --error-bg: #fbeae8;
+      --gold-chip-bg: #f5e6c4;
+      --petrol-tint: #e8f0f3;
+      --petrol-hover: #dce8ec;
+
+      /* Focused Tool type scale */
+      --display-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.375rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.75rem;
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    :focus-visible {
+      outline: 2.5px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Briefing Defining Treatments */
+    .dossier-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-bottom: var(--section-rule);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .dossier-bar-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .dossier-pill {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: var(--label-tracking);
+      text-transform: uppercase;
+      padding: 0.1875rem 0.5rem;
+      border-radius: var(--badge-radius);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .dossier-meta {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .title {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: var(--display-size);
+      letter-spacing: var(--heading-tracking);
+      line-height: 1.08;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    .section-title {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: var(--headline-size);
+      letter-spacing: var(--heading-tracking);
+      line-height: 1.15;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    .standfirst {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--subhead-size);
+      color: var(--secondary);
+      margin: var(--space-xs) 0 0 0;
+      line-height: 1.45;
+    }
+
+    .figure-card {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+    .aside-box {
+      background: var(--surface-container);
+      border-top: var(--section-rule);
+      border-radius: 0 0 var(--rounded-lg) var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+    .index-num {
+      font-family: var(--font-label);
+      font-weight: 600;
+      font-size: var(--label-size);
+      color: var(--secondary);
+      background: var(--surface-container);
+      padding: 0.15rem 0.45rem;
+      border-radius: var(--badge-radius);
+      display: inline-block;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--rounded);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--body-size);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-short) var(--ease-out),
+                  color var(--dur-short) var(--ease-out),
+                  box-shadow var(--dur-micro) var(--ease-out),
+                  transform var(--dur-micro) var(--ease-out);
+    }
+    .btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: var(--secondary);
+    }
+    .btn-secondary {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: var(--secondary-btn-border);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--surface-container);
+    }
+    .btn-accent {
+      background: var(--secondary);
+      color: var(--on-primary);
+    }
+    .btn-accent:hover:not(:disabled) {
+      background: var(--primary);
+    }
+    .btn-warning {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      border-color: var(--primary-container);
+    }
+    .btn-warning:hover:not(:disabled) {
+      background: var(--gold-chip-bg);
+    }
+    .btn-danger {
+      background: var(--error);
+      color: var(--on-error);
+    }
+    .btn-danger:hover:not(:disabled) {
+      opacity: 0.92;
+    }
+    .btn-sm {
+      min-height: 44px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.875rem;
+    }
+
+    /* Form Controls */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface);
+    }
+    .field-input {
+      width: 100%;
+      min-height: 44px;
+      padding: 0.625rem 0.875rem;
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: var(--secondary-btn-border);
+      border-radius: var(--rounded);
+      transition: box-shadow var(--dur-micro) var(--ease-out),
+                  background-color var(--dur-micro) var(--ease-out);
+    }
+    .field-input:focus {
+      box-shadow: 0 0 0 2px var(--secondary);
+    }
+    .field-input.is-error {
+      box-shadow: 0 0 0 2px var(--error);
+      background: var(--error-bg);
+    }
+    .inline-msg {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+    .inline-msg.is-error {
+      background: var(--error-bg);
+      color: var(--error);
+      border-left: 3px solid var(--error);
+    }
+    .inline-msg.is-success {
+      background: var(--positive-bg);
+      color: var(--positive);
+      border-left: 3px solid var(--positive);
+    }
+    .inline-msg.is-warning {
+      background: var(--warning-bg);
+      color: var(--tertiary);
+      border-left: 3px solid var(--warning);
+    }
+    .inline-msg.is-info {
+      background: var(--petrol-tint);
+      color: var(--secondary);
+      border-left: 3px solid var(--secondary);
+    }
+
+    /* Tags & Badges */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .chip-gold { background: var(--gold-chip-bg); color: var(--tertiary); }
+    .chip-petrol { background: var(--petrol-tint); color: var(--secondary); }
+    .chip-positive { background: var(--positive-bg); color: var(--positive); }
+    .chip-error { background: var(--error-bg); color: var(--error); }
+    .chip-neutral { background: var(--surface-container); color: var(--on-surface-variant); }
+
+    /* Views */
+    .view-section {
+      display: none;
+      animation: fadeUp var(--dur-short) var(--ease-out);
+    }
+    .view-section.is-active {
+      display: block;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Landing Grid */
+    .landing-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+    .form-stack {
+      display: grid;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .rules-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0;
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .rules-list li {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--space-sm);
+      align-items: start;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--outline-variant);
+      font-size: 0.9375rem;
+    }
+    .rules-list li:last-child {
+      border-bottom: none;
+    }
+    .blueprint-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--space-sm);
+      align-items: start;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--outline-variant);
+    }
+    .blueprint-item:last-child { border-bottom: none; }
+    .blueprint-item h3 {
+      margin: 0;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--on-surface);
+    }
+    .blueprint-item p {
+      margin: 0.2rem 0 0 0;
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Quiz Top Telemetry Strip */
+    .telemetry-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 0.8fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .telemetry-tile {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-sm) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .telemetry-tile.is-timer-warn {
+      background: var(--warning-bg);
+      border-color: var(--warning);
+    }
+    .telemetry-tile.is-timer-danger {
+      background: var(--error-bg);
+      border-color: var(--error);
+    }
+    .telemetry-tile.is-violation-alert {
+      background: var(--error-bg);
+      border-color: var(--error);
+    }
+    .telemetry-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .telemetry-value {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 1.35rem;
+      font-variant-numeric: lining-nums tabular-nums;
+      color: var(--on-surface);
+      line-height: 1.25;
+    }
+    .telemetry-value.mono {
+      font-family: var(--font-label);
+    }
+    .telemetry-sub {
+      font-size: 0.8125rem;
+      color: var(--secondary);
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Cheat Warning Banner */
+    .cheat-banner {
+      display: none;
+      background: var(--error);
+      color: var(--on-error);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      margin-bottom: var(--space-lg);
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .cheat-banner.is-visible {
+      display: flex;
+    }
+    .cheat-banner-content {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      flex: 1 1 300px;
+    }
+    .cheat-banner-title {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin: 0 0 0.2rem 0;
+    }
+    .cheat-banner-desc {
+      margin: 0;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+    }
+
+    /* Quiz Main Layout */
+    .quiz-workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+    .question-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--outline-variant);
+      margin-bottom: var(--space-md);
+    }
+    .question-meta-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .question-stimulus {
+      background: var(--surface-container);
+      border-left: 3px solid var(--secondary);
+      padding: var(--space-md);
+      border-radius: 0 var(--rounded) var(--rounded) 0;
+      margin-bottom: var(--space-md);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      max-width: 68ch;
+    }
+    .question-prompt {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 1.2rem;
+      line-height: 1.4;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-md) 0;
+      max-width: 65ch;
+    }
+
+    /* Visual Diagram Figure Box */
+    .visual-figure {
+      margin: 0 0 var(--space-lg) 0;
+      background: var(--background);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+    }
+    .visual-figure-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-sm);
+    }
+    .visual-figure-title {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--secondary);
+    }
+    .visual-figure-note {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      color: var(--on-surface-variant);
+    }
+    .svg-wrap {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .svg-wrap svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .visual-caption {
+      margin-top: var(--space-xs);
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+      text-align: center;
+    }
+
+    /* Options List */
+    .options-list {
+      display: grid;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+    .option-btn {
+      width: 100%;
+      min-height: 48px;
+      text-align: left;
+      padding: 0.75rem var(--space-md);
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr);
+      gap: var(--space-sm);
+      align-items: start;
+      transition: background-color var(--dur-micro) var(--ease-out),
+                  box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .option-btn:hover {
+      background: var(--surface-container);
+    }
+    .option-btn.is-selected {
+      background: var(--petrol-tint);
+      box-shadow: inset 0 0 0 2px var(--secondary);
+    }
+    .option-key {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--badge-radius);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-family: var(--font-label);
+      font-weight: 600;
+      font-size: 0.8125rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .option-btn.is-selected .option-key {
+      background: var(--secondary);
+      color: var(--on-primary);
+    }
+    .option-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding-top: 2px;
+    }
+
+    /* Question Bottom Nav */
+    .question-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--outline-variant);
+    }
+    .question-actions-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Sidebar Navigator */
+    .nav-panel-title {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-sm) 0;
+    }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 6px;
+      margin-bottom: var(--space-md);
+    }
+    .nav-num {
+      min-height: 44px;
+      border-radius: var(--rounded);
+      border: var(--secondary-btn-border);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-family: var(--font-label);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: background-color var(--dur-micro) var(--ease-out),
+                  box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .nav-num:hover {
+      background: var(--surface-container-high);
+    }
+    .nav-num.is-answered {
+      background: var(--secondary);
+      color: var(--on-primary);
+      border-color: var(--secondary);
+    }
+    .nav-num.is-flagged {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      border-color: var(--primary-container);
+    }
+    .nav-num.is-current {
+      box-shadow: 0 0 0 2.5px var(--on-surface);
+    }
+    .nav-legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xs) var(--space-sm);
+      font-size: 0.78rem;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-md);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      border: 1px solid var(--outline-variant);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .swatch-empty { background: var(--surface-container-low); }
+    .swatch-answered { background: var(--secondary); border-color: var(--secondary); }
+    .swatch-flagged { background: var(--primary-container); border-color: var(--primary-container); }
+    .swatch-current { background: var(--surface-container-low); box-shadow: inset 0 0 0 2px var(--on-surface); }
+
+    /* Results Recap */
+    .recap-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: stretch;
+      margin-bottom: var(--space-lg);
+    }
+    .score-spotlight {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .score-big-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .score-big {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: clamp(3rem, 2.2rem + 2.5vw, 4.25rem);
+      line-height: 1;
+      font-variant-numeric: lining-nums tabular-nums;
+      color: var(--on-surface);
+    }
+    .score-denom {
+      font-family: var(--font-label);
+      font-size: 1rem;
+      color: var(--on-surface-variant);
+    }
+    .stat-4-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+    .stat-box {
+      background: var(--surface-container);
+      border-top: var(--section-rule);
+      padding: var(--space-md);
+      border-radius: 0 0 var(--rounded) var(--rounded);
+    }
+    .stat-box.is-good { border-top-color: var(--positive); }
+    .stat-box.is-bad { border-top-color: var(--error); }
+    .stat-box-num {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 1.6rem;
+      font-variant-numeric: tabular-nums;
+      margin: 0.25rem 0 0 0;
+    }
+
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+    .bar-list {
+      display: grid;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .bar-row-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+    .bar-track {
+      height: 10px;
+      background: var(--surface-container-high);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: var(--data-1);
+      transition: width var(--dur-long) var(--ease-out);
+    }
+    .bar-fill.is-gold { background: var(--data-2); }
+    .bar-fill.is-pine { background: var(--data-3); }
+
+    /* Clipboard Preview Box */
+    .recap-copy-pre {
+      font-family: var(--font-label);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+      background: var(--surface-container);
+      border: var(--card-border);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      white-space: pre-wrap;
+      overflow-x: auto;
+      margin: var(--space-sm) 0 var(--space-md) 0;
+    }
+
+    /* Locked Explanations Section */
+    .lock-card {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-top: 3px solid var(--primary-container);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+    .unlock-form-row {
+      display: grid;
+      grid-template-columns: minmax(0, 320px) auto;
+      gap: var(--space-sm);
+      align-items: end;
+      margin-top: var(--space-md);
+    }
+    .review-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .filter-tab {
+      min-height: 44px;
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--rounded);
+      border: var(--secondary-btn-border);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .filter-tab.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .review-list {
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .review-item {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+    .review-item.is-correct { border-left: 4px solid var(--positive); }
+    .review-item.is-wrong { border-left: 4px solid var(--error); }
+    .review-answers-compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+    .ans-box {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      background: var(--surface-container);
+      font-size: 0.9rem;
+    }
+    .ans-box.is-right { background: var(--positive-bg); color: var(--positive); }
+    .ans-box.is-wrong { background: var(--error-bg); color: var(--error); }
+    .explanation-box {
+      background: var(--petrol-tint);
+      border-left: 3px solid var(--secondary);
+      padding: var(--space-md);
+      border-radius: 0 var(--rounded) var(--rounded) 0;
+      font-size: 0.9375rem;
+      line-height: 1.65;
+    }
+
+    /* Violation log table */
+    .log-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-sm);
+      font-size: 0.875rem;
+    }
+    .log-table th {
+      text-align: left;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      padding: var(--space-xs) var(--space-sm);
+      border-bottom: var(--section-rule);
+      color: var(--on-surface-variant);
+    }
+    .log-table td {
+      padding: var(--space-xs) var(--space-sm);
+      border-bottom: 1px solid var(--outline-variant);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .page-footer {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--outline-variant);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    /* Container queries for component-level adaptation */
+    .card-container { container-type: inline-size; }
+    @container (max-width: 500px) {
+      .form-row-2,
+      .review-answers-compare,
+      .unlock-form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Page-level mobile breakpoint */
+    @media (max-width: 900px) {
+      .landing-grid,
+      .quiz-workspace,
+      .recap-hero,
+      .breakdown-grid {
+        grid-template-columns: 1fr;
+      }
+      .telemetry-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-md);
+      }
+      .figure-card, .aside-box, .lock-card, .review-item {
+        padding: var(--space-md);
+      }
+      .telemetry-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .stat-4-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .question-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .question-actions-group {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-grid">
+    <!-- Top Dossier Masthead -->
+    <header>
+      <div class="dossier-bar">
+        <div class="dossier-bar-left">
+          <span class="dossier-pill">Asesmen TKA Ekonomi</span>
+          <span class="dossier-meta">Kelas X · TP 12 &amp; TP 16 · Kurikulum Merdeka</span>
+        </div>
+        <span class="dossier-meta" id="header-status-meta">30 Soal HOTS · 40 Menit</span>
+      </div>
+      <h1 class="title">Evaluasi Pasar, Permintaan, Penawaran &amp; Keseimbangan</h1>
+      <p class="standfirst">Instrumen Tes Kemampuan Akademik berbasis kurva ekonomi dan studi kasus pasar dengan pengawasan integritas.</p>
+    </header>
+
+    <!-- VIEW 1: LANDING / IDENTITY -->
+    <section id="view-landing" class="view-section is-active" aria-label="Halaman Identitas Peserta">
+      <div id="resume-banner" class="inline-msg is-info" style="display: none; margin-bottom: var(--space-lg); justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <div>
+          <strong>Sesi tersimpan ditemukan:</strong> <span id="resume-info-text"></span>
+        </div>
+        <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+          <button type="button" class="btn btn-accent btn-sm" onclick="resumeSavedSession()">Lanjutkan Sesi</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="clearSavedSession(this)">Hapus Sesi Lama</button>
+        </div>
+      </div>
+
+      <div class="landing-grid">
+        <div class="figure-card card-container">
+          <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+            <span class="dossier-meta">01 · Registrasi Peserta Ujian</span>
+          </div>
+          <h2 class="section-title">Identitas Siswa</h2>
+          <p style="color: var(--on-surface-variant); margin: var(--space-xs) 0 0 0;">
+            Lengkapi nama dan kelas sebelum memulai penghitung waktu mundur 40 menit.
+          </p>
+
+          <form id="start-form" class="form-stack" onsubmit="handleStartQuiz(event)" novalidate>
+            <div class="form-row-2">
+              <div class="field-group">
+                <label class="field-label" for="input-name">Nama Lengkap Siswa</label>
+                <input class="field-input" type="text" id="input-name" autocomplete="name" placeholder="Contoh: Raka Pratama Wijaya" required>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="input-class">Kelas</label>
+                <input class="field-input" type="text" id="input-class" placeholder="Contoh: X-1 / X IPS 2" required>
+              </div>
+            </div>
+
+            <div id="start-error" class="inline-msg is-error" style="display: none;" role="alert"></div>
+
+            <ul class="rules-list" aria-label="Tata tertib pengerjaan">
+              <li>
+                <span class="index-num">01</span>
+                <span><strong>Alokasi Waktu 40 Menit:</strong> Timer berjalan otomatis setelah Anda menekan tombol mulai dan kuis dikumpulkan otomatis saat waktu habis.</span>
+              </li>
+              <li>
+                <span class="index-num">02</span>
+                <span><strong>Sistem Pengawasan Anti-Curang:</strong> Meninggalkan tab atau jendela ujian akan memicu <em>bel peringatan</em> dan mencatat jumlah pelanggaran pada rekap nilai akhir.</span>
+              </li>
+              <li>
+                <span class="index-num">03</span>
+                <span><strong>Pembahasan Terkunci:</strong> Setelah ujian selesai, kunci dan pembahasan 30 soal hanya dapat dibuka menggunakan kode akses dari guru pengampu.</span>
+              </li>
+            </ul>
+
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center;">
+              <button type="submit" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Mulai Ujian Sekarang
+              </button>
+              <button type="button" class="btn btn-secondary" onclick="previewWarningSound()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                Uji Bel Peringatan
+              </button>
+            </div>
+            <div id="sound-test-msg" class="inline-msg is-info" style="display: none;"></div>
+          </form>
+        </div>
+
+        <aside class="aside-box" aria-label="Kisi-kisi materi dan tingkat kesulitan">
+          <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+            <span class="dossier-meta">02 · Kisi-Kisi Instrumen TKA</span>
+          </div>
+          <h2 class="section-title" style="font-size: 1.25rem;">Cakupan Materi &amp; Bobot</h2>
+
+          <div style="margin-top: var(--space-md);">
+            <div class="blueprint-item">
+              <span class="index-num">TP 12</span>
+              <div>
+                <h3>Jenis &amp; Struktur Pasar</h3>
+                <p>Pasar konkret &amp; abstrak, persaingan sempurna, monopoli, oligopoli, monopolistik, serta monopsoni.</p>
+              </div>
+            </div>
+            <div class="blueprint-item">
+              <span class="index-num">TP 16</span>
+              <div>
+                <h3>Hukum Permintaan &amp; Penawaran</h3>
+                <p>Hubungan harga &amp; kuantitas (ceteris paribus), pergerakan di sepanjang kurva vs pergeseran kurva, serta fungsi linear.</p>
+              </div>
+            </div>
+            <div class="blueprint-item">
+              <span class="index-num">TP 16</span>
+              <div>
+                <h3>Keseimbangan &amp; Kebijakan Pasar</h3>
+                <p>Titik equilibrium (Q<sub>d</sub> = Q<sub>s</sub>), surplus &amp; shortage, harga dasar/tertinggi, serta dampak pajak &amp; subsidi.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--outline-variant);">
+            <div class="dossier-meta" style="margin-bottom: var(--space-xs);">Distribusi Tingkat Kesulitan</div>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-xs);">
+              <span class="chip chip-positive">10 Mudah</span>
+              <span class="chip chip-gold">10 Sedang</span>
+              <span class="chip chip-error">10 Sulit (HOTS)</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VIEW 2: ACTIVE QUIZ WORKSPACE -->
+    <section id="view-quiz" class="view-section" aria-label="Ruang Pengerjaan Ujian">
+      <!-- Telemetry Strip -->
+      <div class="telemetry-grid">
+        <div class="telemetry-tile">
+          <span class="telemetry-label">Peserta Aktif</span>
+          <span class="telemetry-value" id="quiz-student-name" style="font-size: 1.1rem;">—</span>
+          <span class="telemetry-sub" id="quiz-student-class">—</span>
+        </div>
+        <div class="telemetry-tile" id="timer-tile">
+          <span class="telemetry-label">Sisa Waktu</span>
+          <span class="telemetry-value mono" id="timer-display">40:00</span>
+          <span class="telemetry-sub" id="timer-status-text">Waktu berjalan</span>
+        </div>
+        <div class="telemetry-tile">
+          <span class="telemetry-label">Progres Terjawab</span>
+          <span class="telemetry-value mono" id="progress-display">0 / 30</span>
+          <span class="telemetry-sub" id="flagged-display">0 ditandai ragu</span>
+        </div>
+        <div class="telemetry-tile" id="violation-tile">
+          <span class="telemetry-label">Pelanggaran Tab</span>
+          <span class="telemetry-value mono" id="violation-display">0</span>
+          <span class="telemetry-sub" id="violation-sub-text">Status bersih</span>
+        </div>
+      </div>
+
+      <!-- Anti-Cheating Inline Alert Banner -->
+      <div id="cheat-banner" class="cheat-banner" role="alert" aria-live="assertive">
+        <div class="cheat-banner-content">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div>
+            <p class="cheat-banner-title" id="cheat-banner-title">Peringatan Pengawas · Pelanggaran #1 Tercatat</p>
+            <p class="cheat-banner-desc" id="cheat-banner-desc">Sistem mendeteksi Anda meninggalkan tab atau jendela ujian. Aktivitas ini dicatat otomatis dalam laporan integritas nilai akhir Anda.</p>
+          </div>
+        </div>
+        <button type="button" class="btn btn-warning btn-sm" onclick="dismissCheatBanner()">Saya Mengerti</button>
+      </div>
+
+      <div class="quiz-workspace">
+        <!-- Active Question Card -->
+        <div class="figure-card">
+          <div class="question-header">
+            <div class="question-meta-left">
+              <span class="index-num" id="q-number-badge">SOAL 01 / 30</span>
+              <span class="chip" id="q-diff-badge">MUDAH</span>
+              <span class="chip chip-petrol" id="q-topic-badge">TP 12 · Jenis Pasar</span>
+            </div>
+            <span class="dossier-meta" id="q-status-badge">BELUM DIJAWAB</span>
+          </div>
+
+          <div class="question-stimulus" id="q-stimulus"></div>
+          <h2 class="question-prompt" id="q-prompt"></h2>
+
+          <figure class="visual-figure">
+            <div class="visual-figure-head">
+              <span class="visual-figure-title" id="q-visual-title"></span>
+              <span class="visual-figure-note" id="q-visual-note"></span>
+            </div>
+            <div class="svg-wrap" id="q-visual-svg"></div>
+            <figcaption class="visual-caption" id="q-visual-caption"></figcaption>
+          </figure>
+
+          <div class="options-list" id="q-options" role="radiogroup" aria-label="Pilihan jawaban"></div>
+
+          <div class="question-actions">
+            <div class="question-actions-group">
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-prev" onclick="prevQuestion()">
+                ← Sebelumnya
+              </button>
+              <button type="button" class="btn btn-warning btn-sm" id="btn-flag" onclick="toggleFlagCurrent()">
+                Tandai Ragu-Ragu
+              </button>
+            </div>
+            <div class="question-actions-group">
+              <button type="button" class="btn btn-primary btn-sm" id="btn-next" onclick="nextQuestion()">
+                Berikutnya →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question Grid Navigator Sidebar -->
+        <aside class="aside-box" aria-label="Navigasi Nomor Soal">
+          <h3 class="nav-panel-title">Peta Nomor Soal (1–30)</h3>
+          <div class="nav-grid" id="nav-grid"></div>
+
+          <div class="nav-legend">
+            <div class="legend-item"><span class="legend-swatch swatch-empty"></span> Kosong</div>
+            <div class="legend-item"><span class="legend-swatch swatch-answered"></span> Terjawab</div>
+            <div class="legend-item"><span class="legend-swatch swatch-flagged"></span> Ragu-ragu</div>
+            <div class="legend-item"><span class="legend-swatch swatch-current"></span> Aktif</div>
+          </div>
+
+          <div id="submit-warning-msg" class="inline-msg is-warning" style="display: none; margin-bottom: var(--space-sm);"></div>
+
+          <button type="button" class="btn btn-primary" style="width: 100%;" id="btn-finish-quiz" onclick="finishQuizConfirm(this)">
+            Selesaikan &amp; Kumpulkan
+          </button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VIEW 3: RESULTS RECAP & LOCKED REVIEW -->
+    <section id="view-result" class="view-section" aria-label="Rekap Hasil Ujian">
+      <div class="recap-hero">
+        <div class="figure-card score-spotlight">
+          <div>
+            <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+              <span class="dossier-pill" id="res-predicate-pill">HASIL EVALUASI</span>
+              <span class="dossier-meta" id="res-identity-meta">—</span>
+            </div>
+            <div class="score-big-row">
+              <span class="score-big" id="res-score">0</span>
+              <span class="score-denom">/ 100 POIN</span>
+            </div>
+            <p class="standfirst" id="res-summary-line" style="margin-top: var(--space-sm);"></p>
+          </div>
+
+          <div class="stat-4-grid">
+            <div class="stat-box is-good">
+              <span class="telemetry-label">Jawaban Benar</span>
+              <p class="stat-box-num" id="res-correct">0</p>
+            </div>
+            <div class="stat-box is-bad">
+              <span class="telemetry-label">Salah / Kosong</span>
+              <p class="stat-box-num" id="res-wrong">0</p>
+            </div>
+            <div class="stat-box">
+              <span class="telemetry-label">Waktu Terpakai</span>
+              <p class="stat-box-num" id="res-time">00:00</p>
+            </div>
+            <div class="stat-box" id="res-violation-box">
+              <span class="telemetry-label">Pelanggaran Tab</span>
+              <p class="stat-box-num" id="res-violations">0</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clipboard Copy Card -->
+        <div class="figure-card">
+          <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+            <span class="dossier-meta">Salin Rekap Nilai</span>
+          </div>
+          <h2 class="section-title" style="font-size: 1.25rem;">Laporan Siap Kirim</h2>
+          <p style="color: var(--on-surface-variant); font-size: 0.9rem; margin: var(--space-xs) 0 0 0;">
+            Salin ringkasan nilai di bawah ini untuk dikirimkan kepada guru Ekonomi melalui portal kelas.
+          </p>
+
+          <pre class="recap-copy-pre" id="recap-clipboard-text"></pre>
+
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+            <button type="button" class="btn btn-primary btn-sm" onclick="copyRecapToClipboard()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Salin Rekap Nilai
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="downloadRecapTxt()">
+              Unduh (.txt)
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-retake" onclick="retakeQuiz(this)">
+              Ulangi Ujian Baru
+            </button>
+          </div>
+          <div id="copy-feedback" class="inline-msg is-success" style="display: none; margin-top: var(--space-sm);"></div>
+        </div>
+      </div>
+
+      <!-- Violation Log if any -->
+      <div id="violation-log-card" class="figure-card" style="display: none; margin-bottom: var(--space-lg);">
+        <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+          <span class="dossier-meta">Catatan Pengawasan Anti-Curang</span>
+        </div>
+        <h3 class="section-title" style="font-size: 1.15rem;">Riwayat Deteksi Meninggalkan Halaman</h3>
+        <table class="log-table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Waktu Kejadian</th>
+              <th>Jenis Deteksi</th>
+            </tr>
+          </thead>
+          <tbody id="violation-log-tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Breakdown by Topic & Difficulty -->
+      <div class="breakdown-grid">
+        <div class="figure-card">
+          <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+            <span class="dossier-meta">Analisis Kompetensi Materi</span>
+          </div>
+          <h3 class="section-title" style="font-size: 1.15rem;">Ketuntasan per Topik</h3>
+          <div class="bar-list" id="topic-breakdown-list"></div>
+        </div>
+        <div class="figure-card">
+          <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+            <span class="dossier-meta">Analisis Kompleksitas Kognitif</span>
+          </div>
+          <h3 class="section-title" style="font-size: 1.15rem;">Ketuntasan per Tingkat Kesulitan</h3>
+          <div class="bar-list" id="diff-breakdown-list"></div>
+        </div>
+      </div>
+
+      <!-- Locked Explanation Gate -->
+      <div class="lock-card card-container" id="explanation-gate">
+        <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+          <span class="dossier-pill" id="lock-status-pill">TERKUNCI</span>
+          <span class="dossier-meta">Kunci Jawaban &amp; Pembahasan Lengkap (30 Soal)</span>
+        </div>
+
+        <div id="locked-panel">
+          <h2 class="section-title" style="font-size: 1.35rem;">Pembahasan Dilindungi Kode Akses</h2>
+          <p style="color: var(--on-surface-variant); margin: var(--space-xs) 0 0 0; max-width: 65ch;">
+            Untuk menjaga kerahasiaan instrumen evaluasi, pembahasan matematis dan konseptual tiap soal hanya dapat diakses dengan kode pembuka dari guru.
+          </p>
+
+          <form onsubmit="handleUnlockExplanations(event)" novalidate>
+            <div class="unlock-form-row">
+              <div class="field-group">
+                <label class="field-label" for="input-unlock-code">Kode Akses Pembahasan</label>
+                <input class="field-input" type="password" id="input-unlock-code" placeholder="Masukkan kode akses" autocomplete="off">
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Buka Pembahasan
+              </button>
+            </div>
+          </form>
+          <div id="unlock-error-msg" class="inline-msg is-error" style="display: none; margin-top: var(--space-sm);" role="alert"></div>
+        </div>
+
+        <div id="unlocked-panel" style="display: none;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+            <div>
+              <h2 class="section-title" style="font-size: 1.35rem;">Pembahasan Lengkap 30 Soal TKA</h2>
+              <p style="color: var(--positive); font-weight: 600; margin: var(--space-xs) 0 0 0;">
+                Akses pembahasan telah dibuka. Tinjau kembali langkah analisis setiap soal di bawah ini.
+              </p>
+            </div>
+          </div>
+
+          <div class="review-controls" id="review-filter-bar" role="group" aria-label="Filter pembahasan">
+            <button type="button" class="filter-tab is-active" onclick="setReviewFilter('all', this)">Semua (30)</button>
+            <button type="button" class="filter-tab" onclick="setReviewFilter('wrong', this)">Salah / Kosong</button>
+            <button type="button" class="filter-tab" onclick="setReviewFilter('correct', this)">Benar</button>
+            <button type="button" class="filter-tab" onclick="setReviewFilter('Sulit', this)">Soal Sulit (HOTS)</button>
+          </div>
+
+          <div class="review-list" id="review-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>Evaluasi Ekonomi Kelas X · Kurikulum Merdeka (TP 12 &amp; TP 16)</span>
+      <span>Sumber Materi: Modul Ajar Ekonomi Kelas X, Ruangguru, dan Brain Academy</span>
+    </footer>
+  </div>
+
+  <api-shim></api-shim>
+  <script>
+    // =========================================================================
+    // 1. CONSTANTS & SVG VISUAL BUILDERS
+    // =========================================================================
+    const TOTAL_SECONDS = 40 * 60; // 40 menit
+    const UNLOCK_KEY = 'ILOVEYOU';
+    const LETTERS = ['A', 'B', 'C', 'D', 'E'];
+
+    // Cartesian Economics Curve SVG Builder (Zero inline hex, uses CSS vars)
+    function buildCurveSVG(cfg) {
+      const W = 460, H = 270;
+      const x0 = 64, y0 = 224, plotW = 356, plotH = 192;
+      const qMax = cfg.qMax || 100;
+      const pMax = cfg.pMax || 100;
+      const tx = (q) => (x0 + (q / qMax) * plotW).toFixed(1);
+      const ty = (p) => (y0 - (p / pMax) * plotH).toFixed(1);
+
+      let parts = [];
+      // Subtle gridlines
+      for (let i = 1; i <= 4; i++) {
+        const gy = (y0 - (i / 4) * plotH).toFixed(1);
+        const gx = (x0 + (i / 4) * plotW).toFixed(1);
+        parts.push(`<line x1="${x0}" y1="${gy}" x2="${x0 + plotW}" y2="${gy}" stroke="var(--outline-variant)" stroke-width="1" stroke-dasharray="3 3"/>`);
+        parts.push(`<line x1="${gx}" y1="${y0 - plotH}" x2="${gx}" y2="${y0}" stroke="var(--outline-variant)" stroke-width="1" stroke-dasharray="3 3"/>`);
+      }
+
+      // Optional shaded rects (surplus/shortage/tax/DWL)
+      if (cfg.rects) {
+        cfg.rects.forEach((r) => {
+          const rx = parseFloat(tx(r.q1));
+          const ry = parseFloat(ty(r.p2));
+          const rw = parseFloat(tx(r.q2)) - rx;
+          const rh = parseFloat(ty(r.p1)) - ry;
+          parts.push(`<rect x="${rx.toFixed(1)}" y="${ry.toFixed(1)}" width="${Math.max(1, rw).toFixed(1)}" height="${Math.max(1, rh).toFixed(1)}" fill="${r.fill || 'var(--primary-container)'}" fill-opacity="${r.opacity || '0.24'}" stroke="${r.stroke || 'none'}" stroke-dasharray="3 2"/>`);
+        });
+      }
+
+      // Optional shaded triangles (e.g. DWL)
+      if (cfg.polygons) {
+        cfg.polygons.forEach((poly) => {
+          const pts = poly.pts.map((pt) => `${tx(pt[0])},${ty(pt[1])}`).join(' ');
+          parts.push(`<polygon points="${pts}" fill="${poly.fill || 'var(--data-4)'}" fill-opacity="${poly.opacity || '0.22'}"/>`);
+        });
+      }
+
+      // Axes
+      parts.push(`<line x1="${x0}" y1="${y0 - plotH - 8}" x2="${x0}" y2="${y0}" stroke="var(--on-surface)" stroke-width="1.8"/>`);
+      parts.push(`<line x1="${x0}" y1="${y0}" x2="${x0 + plotW + 12}" y2="${y0}" stroke="var(--on-surface)" stroke-width="1.8"/>`);
+      parts.push(`<text x="${x0 - 8}" y="${y0 - plotH - 12}" text-anchor="middle" font-family="var(--font-label)" font-size="11" font-weight="600" fill="var(--on-surface)">${cfg.pLabel || 'P'}</text>`);
+      parts.push(`<text x="${x0 + plotW + 16}" y="${y0 + 4}" text-anchor="start" font-family="var(--font-label)" font-size="11" font-weight="600" fill="var(--on-surface)">${cfg.qLabel || 'Q'}</text>`);
+      parts.push(`<text x="${x0 - 8}" y="${y0 + 14}" text-anchor="end" font-family="var(--font-label)" font-size="10" fill="var(--on-surface-variant)">0</text>`);
+
+      // Horizontal/vertical guide lines
+      if (cfg.hLines) {
+        cfg.hLines.forEach((hl) => {
+          const py = ty(hl.p);
+          const qEnd = hl.qEnd !== undefined ? tx(hl.qEnd) : (x0 + plotW);
+          parts.push(`<line x1="${x0}" y1="${py}" x2="${qEnd}" y2="${py}" stroke="${hl.color || 'var(--on-surface-variant)'}" stroke-width="${hl.width || 1.3}" stroke-dasharray="${hl.dash || '4 3'}"/>`);
+          if (hl.label) {
+            parts.push(`<text x="${x0 - 6}" y="${parseFloat(py) + 4}" text-anchor="end" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="${hl.color || 'var(--on-surface)'}">${hl.label}</text>`);
+          }
+          if (hl.rightLabel) {
+            parts.push(`<text x="${parseFloat(qEnd) + 5}" y="${parseFloat(py) + 4}" text-anchor="start" font-family="var(--font-label)" font-size="10" font-weight="600" fill="${hl.color || 'var(--on-surface)'}">${hl.rightLabel}</text>`);
+          }
+        });
+      }
+      if (cfg.vLines) {
+        cfg.vLines.forEach((vl) => {
+          const qx = tx(vl.q);
+          const pTop = vl.pEnd !== undefined ? ty(vl.pEnd) : (y0 - plotH);
+          parts.push(`<line x1="${qx}" y1="${y0}" x2="${qx}" y2="${pTop}" stroke="${vl.color || 'var(--on-surface-variant)'}" stroke-width="${vl.width || 1.3}" stroke-dasharray="${vl.dash || '4 3'}"/>`);
+          if (vl.label) {
+            parts.push(`<text x="${qx}" y="${y0 + 15}" text-anchor="middle" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="${vl.color || 'var(--on-surface)'}">${vl.label}</text>`);
+          }
+        });
+      }
+
+      // Curves / Lines
+      if (cfg.lines) {
+        cfg.lines.forEach((ln) => {
+          parts.push(`<line x1="${tx(ln.q1)}" y1="${ty(ln.p1)}" x2="${tx(ln.q2)}" y2="${ty(ln.p2)}" stroke="${ln.color || 'var(--data-1)'}" stroke-width="${ln.width || 2.6}" ${ln.dash ? `stroke-dasharray="${ln.dash}"` : ''} stroke-linecap="round"/>`);
+          if (ln.label) {
+            const lx = ln.lq !== undefined ? tx(ln.lq) : tx(ln.q2);
+            const ly = ln.lp !== undefined ? ty(ln.lp) : ty(ln.p2);
+            parts.push(`<text x="${lx}" y="${ly}" font-family="var(--font-label)" font-size="11.5" font-weight="600" fill="${ln.color || 'var(--data-1)'}" text-anchor="${ln.anchor || 'start'}">${ln.label}</text>`);
+          }
+        });
+      }
+
+      // Smooth curve paths (for LRAC or non-linear)
+      if (cfg.paths) {
+        cfg.paths.forEach((p) => {
+          const dStr = p.pts.map((pt, idx) => `${idx === 0 ? 'M' : 'L'} ${tx(pt[0])} ${ty(pt[1])}`).join(' ');
+          parts.push(`<path d="${dStr}" fill="none" stroke="${p.color || 'var(--data-1)'}" stroke-width="${p.width || 2.6}" stroke-linecap="round" stroke-linejoin="round"/>`);
+          if (p.label) {
+            parts.push(`<text x="${tx(p.lq)}" y="${ty(p.lp)}" font-family="var(--font-label)" font-size="11" font-weight="600" fill="${p.color || 'var(--data-1)'}">${p.label}</text>`);
+          }
+        });
+      }
+
+      // Arrows (shifts)
+      if (cfg.arrows) {
+        cfg.arrows.forEach((ar) => {
+          const ax1 = parseFloat(tx(ar.q1)), ay1 = parseFloat(ty(ar.p1));
+          const ax2 = parseFloat(tx(ar.q2)), ay2 = parseFloat(ty(ar.p2));
+          parts.push(`<line x1="${ax1}" y1="${ay1}" x2="${ax2}" y2="${ay2}" stroke="${ar.color || 'var(--data-2)'}" stroke-width="2" marker-end="url(#arrow-head)"/>`);
+        });
+      }
+
+      // Points
+      if (cfg.points) {
+        cfg.points.forEach((pt) => {
+          const cx = tx(pt.q), cy = ty(pt.p);
+          parts.push(`<circle cx="${cx}" cy="${cy}" r="${pt.r || 4.5}" fill="${pt.color || 'var(--on-surface)'}" stroke="var(--surface-container-low)" stroke-width="1.5"/>`);
+          if (pt.label) {
+            const dx = pt.dx || 8;
+            const dy = pt.dy !== undefined ? pt.dy : -7;
+            parts.push(`<text x="${parseFloat(cx) + dx}" y="${parseFloat(cy) + dy}" font-family="var(--font-label)" font-size="11" font-weight="600" fill="${pt.color || 'var(--on-surface)'}" text-anchor="${pt.anchor || 'start'}">${pt.label}</text>`);
+          }
+        });
+      }
+
+      // Annotations
+      if (cfg.notes) {
+        cfg.notes.forEach((nt) => {
+          parts.push(`<text x="${tx(nt.q)}" y="${ty(nt.p)}" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="${nt.color || 'var(--on-surface)'}" text-anchor="${nt.anchor || 'middle'}">${nt.text}</text>`);
+        });
+      }
+
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">
+        <defs>
+          <marker id="arrow-head" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+            <polygon points="0 0, 7 3.5, 0 7" fill="var(--data-2)"/>
+          </marker>
+        </defs>
+        ${parts.join('\n')}
+      </svg>`;
+    }
+
+    // Structural Schematic SVG Builder for TP 12 Market Types & Structures
+    function buildMarketDiagramSVG(type) {
+      const W = 460, H = 240;
+      if (type === 'concrete-vs-abstract') {
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">
+          <rect x="14" y="18" width="202" height="202" rx="6" fill="var(--surface-container-low)" stroke="var(--data-3)" stroke-width="1.8"/>
+          <rect x="14" y="18" width="202" height="32" rx="4" fill="var(--data-3)"/>
+          <text x="115" y="39" text-anchor="middle" font-family="var(--font-label)" font-size="11" font-weight="600" fill="var(--on-primary)">PASAR KONKRET</text>
+          <text x="115" y="76" text-anchor="middle" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--on-surface)">Penjual &amp; Pembeli</text>
+          <text x="115" y="94" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface-variant)">Bertemu Tatap Muka Langsung</text>
+          <line x1="40" y1="112" x2="190" y2="112" stroke="var(--outline-variant)" stroke-width="1"/>
+          <text x="115" y="134" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface)">• Barang tersedia fisik di tempat</text>
+          <text x="115" y="156" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface)">• Serah terima langsung saat itu</text>
+          <text x="115" y="190" text-anchor="middle" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="var(--data-3)">CONTOH: PASAR TRADISIONAL</text>
+
+          <rect x="244" y="18" width="202" height="202" rx="6" fill="var(--surface-container-low)" stroke="var(--data-1)" stroke-width="1.8"/>
+          <rect x="244" y="18" width="202" height="32" rx="4" fill="var(--data-1)"/>
+          <text x="345" y="39" text-anchor="middle" font-family="var(--font-label)" font-size="11" font-weight="600" fill="var(--on-primary)">PASAR ABSTRAK</text>
+          <text x="345" y="76" text-anchor="middle" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--on-surface)">Tanpa Pertemuan Fisik</text>
+          <text x="345" y="94" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface-variant)">Via Media Digital / Elektronik</text>
+          <line x1="270" y1="112" x2="420" y2="112" stroke="var(--outline-variant)" stroke-width="1"/>
+          <text x="345" y="134" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface)">• Barang hanya sampel / data</text>
+          <text x="345" y="156" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface)">• Kesepakatan &amp; transfer daring</text>
+          <text x="345" y="190" text-anchor="middle" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="var(--data-1)">CONTOH: BURSA EFEK (BEI)</text>
+        </svg>`;
+      }
+      if (type === 'monopoly-share') {
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">
+          <circle cx="128" cy="120" r="76" fill="var(--data-1)" stroke="var(--on-surface)" stroke-width="2"/>
+          <text x="128" y="114" text-anchor="middle" font-family="var(--font-headline)" font-size="24" font-weight="700" fill="var(--on-primary)">100%</text>
+          <text x="128" y="136" text-anchor="middle" font-family="var(--font-label)" font-size="10.5" fill="var(--on-primary)">1 PENJUAL TUNGGAL</text>
+
+          <rect x="234" y="34" width="208" height="44" rx="4" fill="var(--surface-container)" stroke="var(--outline-variant)"/>
+          <text x="248" y="54" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="var(--secondary)">HAMBATAN MASUK (BARRIER)</text>
+          <text x="248" y="70" font-family="var(--font-body)" font-size="12" fill="var(--on-surface)">Sangat Tinggi (Regulasi / Modal)</text>
+
+          <rect x="234" y="94" width="208" height="44" rx="4" fill="var(--surface-container)" stroke="var(--outline-variant)"/>
+          <text x="248" y="114" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="var(--secondary)">BARANG SUBSTITUSI DEKAT</text>
+          <text x="248" y="130" font-family="var(--font-body)" font-size="12" fill="var(--on-surface)">Tidak Tersedia</text>
+
+          <rect x="234" y="154" width="208" height="44" rx="4" fill="var(--gold-chip-bg)" stroke="var(--data-2)"/>
+          <text x="248" y="174" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="var(--tertiary)">KEKUATAN HARGA</text>
+          <text x="248" y="190" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--on-surface)">Price Maker (Penentu Harga)</text>
+        </svg>`;
+      }
+      if (type === 'spectrum-monopolistic') {
+        const cols = [
+          { x: 14, title: 'Sempurna', sub: 'Banyak Penjual\nHomogen', active: false },
+          { x: 124, title: 'Monopolistik', sub: 'Banyak Penjual\nTerdiferensiasi', active: true },
+          { x: 234, title: 'Oligopoli', sub: 'Sedikit Penjual\nSaling Bergantung', active: false },
+          { x: 344, title: 'Monopoli', sub: '1 Penjual\nTanpa Pengganti', active: false }
+        ];
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">
+          <line x1="20" y1="36" x2="440" y2="36" stroke="var(--on-surface)" stroke-width="2"/>
+          <text x="20" y="24" font-family="var(--font-label)" font-size="10" fill="var(--on-surface-variant)">DAYA MONOPOLI RENDAH</text>
+          <text x="440" y="24" text-anchor="end" font-family="var(--font-label)" font-size="10" fill="var(--on-surface-variant)">DAYA MONOPOLI PENUH</text>
+          ${cols.map((c) => {
+            const lines = c.sub.split('\n');
+            return `<rect x="${c.x}" y="58" width="102" height="146" rx="5" fill="${c.active ? 'var(--primary-container)' : 'var(--surface-container-low)'}" stroke="${c.active ? 'var(--on-surface)' : 'var(--outline-variant)'}" stroke-width="${c.active ? '2' : '1.2'}"/>
+              <text x="${c.x + 51}" y="86" text-anchor="middle" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--on-surface)">${c.title}</text>
+              <line x1="${c.x + 14}" y1="100" x2="${c.x + 88}" y2="100" stroke="var(--on-surface)" stroke-opacity="0.2"/>
+              <text x="${c.x + 51}" y="124" text-anchor="middle" font-family="var(--font-body)" font-size="10.5" fill="var(--on-surface)">${lines[0]}</text>
+              <text x="${c.x + 51}" y="142" text-anchor="middle" font-family="var(--font-body)" font-size="10.5" fill="var(--on-surface)">${lines[1]}</text>
+              ${c.active ? `<text x="${c.x + 51}" y="184" text-anchor="middle" font-family="var(--font-label)" font-size="9.5" font-weight="700" fill="var(--on-surface)">MEREK &amp; RASA</text>` : ''}`;
+          }).join('')}
+        </svg>`;
+      }
+      if (type === 'oligopoly-interdep') {
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">
+          <rect x="44" y="28" width="136" height="58" rx="6" fill="var(--data-1)"/>
+          <text x="112" y="54" text-anchor="middle" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--on-primary)">Perusahaan A</text>
+          <text x="112" y="72" text-anchor="middle" font-family="var(--font-label)" font-size="10" fill="var(--on-primary)">35% Pangsa</text>
+
+          <rect x="280" y="28" width="136" height="58" rx="6" fill="var(--data-2)"/>
+          <text x="348" y="54" text-anchor="middle" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--on-surface)">Perusahaan B</text>
+          <text x="348" y="72" text-anchor="middle" font-family="var(--font-label)" font-size="10" fill="var(--on-surface)">32% Pangsa</text>
+
+          <rect x="162" y="148" width="136" height="58" rx="6" fill="var(--data-3)"/>
+          <text x="230" y="174" text-anchor="middle" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--on-primary)">Perusahaan C</text>
+          <text x="230" y="192" text-anchor="middle" font-family="var(--font-label)" font-size="10" fill="var(--on-primary)">28% Pangsa</text>
+
+          <line x1="186" y1="57" x2="274" y2="57" stroke="var(--on-surface)" stroke-width="2" stroke-dasharray="4 3"/>
+          <line x1="130" y1="90" x2="195" y2="144" stroke="var(--on-surface)" stroke-width="2" stroke-dasharray="4 3"/>
+          <line x1="330" y1="90" x2="265" y2="144" stroke="var(--on-surface)" stroke-width="2" stroke-dasharray="4 3"/>
+
+          <rect x="152" y="102" width="156" height="24" rx="3" fill="var(--surface-container-low)" stroke="var(--outline)"/>
+          <text x="230" y="118" text-anchor="middle" font-family="var(--font-label)" font-size="10" font-weight="600" fill="var(--on-surface)">AKSI - REAKSI STRATEGIS</text>
+        </svg>`;
+      }
+      if (type === 'monopsony-flow') {
+        const farmers = [38, 86, 134, 182];
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">
+          ${farmers.map((y, idx) => `
+            <rect x="24" y="${y}" width="128" height="30" rx="4" fill="var(--surface-container)" stroke="var(--outline-variant)"/>
+            <text x="88" y="${y + 19}" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--on-surface)">Petani Tebu #${idx + 1}</text>
+            <line x1="156" y1="${y + 15}" x2="276" y2="120" stroke="var(--data-1)" stroke-width="1.8"/>
+          `).join('')}
+          <rect x="282" y="72" width="154" height="96" rx="6" fill="var(--data-1)"/>
+          <text x="359" y="110" text-anchor="middle" font-family="var(--font-body)" font-size="13" font-weight="700" fill="var(--on-primary)">1 Pembeli Tunggal</text>
+          <text x="359" y="130" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-primary)">(Pabrik Gula Daerah)</text>
+          <text x="359" y="152" text-anchor="middle" font-family="var(--font-label)" font-size="10" fill="var(--primary-container)">PENGENDALI HARGA BELI</text>
+        </svg>`;
+      }
+      if (type === 'matrix-perfect-vs-monopolistic') {
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">
+          <rect x="16" y="16" width="428" height="206" rx="6" fill="var(--surface-container-low)" stroke="var(--outline-variant)"/>
+          <line x1="16" y1="54" x2="444" y2="54" stroke="var(--on-surface)" stroke-width="1.5"/>
+          <line x1="146" y1="16" x2="146" y2="222" stroke="var(--outline-variant)"/>
+          <line x1="295" y1="16" x2="295" y2="222" stroke="var(--outline-variant)"/>
+          <text x="81" y="40" text-anchor="middle" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="var(--on-surface-variant)">DIMENSI</text>
+          <text x="220" y="40" text-anchor="middle" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="var(--data-3)">PASAR X (GANDUM)</text>
+          <text x="370" y="40" text-anchor="middle" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="var(--data-1)">PASAR Y (SABUN)</text>
+
+          <text x="28" y="84" font-family="var(--font-body)" font-size="11.5" font-weight="600" fill="var(--on-surface)">Sifat Produk</text>
+          <text x="220" y="84" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface)">Homogen Identik</text>
+          <text x="370" y="84" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface)">Terdiferensiasi Merek</text>
+          <line x1="24" y1="100" x2="436" y2="100" stroke="var(--outline-variant)"/>
+
+          <text x="28" y="128" font-family="var(--font-body)" font-size="11.5" font-weight="600" fill="var(--on-surface)">Peran Iklan</text>
+          <text x="220" y="128" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface)">Sangat Minimal</text>
+          <text x="370" y="128" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface)">Intensif / Kritis</text>
+          <line x1="24" y1="144" x2="436" y2="144" stroke="var(--outline-variant)"/>
+
+          <text x="28" y="172" font-family="var(--font-body)" font-size="11.5" font-weight="600" fill="var(--on-surface)">Kendali Harga</text>
+          <text x="220" y="172" text-anchor="middle" font-family="var(--font-label)" font-size="11" font-weight="600" fill="var(--data-3)">Price Taker</text>
+          <text x="370" y="172" text-anchor="middle" font-family="var(--font-label)" font-size="11" font-weight="600" fill="var(--data-1)">Terbatas (Merek)</text>
+          <line x1="24" y1="188" x2="436" y2="188" stroke="var(--outline-variant)"/>
+
+          <text x="28" y="210" font-family="var(--font-body)" font-size="11.5" font-weight="600" fill="var(--on-surface)">Keluar-Masuk</text>
+          <text x="220" y="210" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface)">Bebas (Mudah)</text>
+          <text x="370" y="210" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" fill="var(--on-surface)">Relatif Bebas</text>
+        </svg>`;
+      }
+      if (type === 'cartel-collusion') {
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">
+          <rect x="24" y="26" width="118" height="44" rx="4" fill="var(--surface-container)" stroke="var(--data-1)" stroke-width="1.5"/>
+          <text x="83" y="52" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" font-weight="600" fill="var(--on-surface)">Produsen 1</text>
+          <rect x="171" y="26" width="118" height="44" rx="4" fill="var(--surface-container)" stroke="var(--data-1)" stroke-width="1.5"/>
+          <text x="230" y="52" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" font-weight="600" fill="var(--on-surface)">Produsen 2</text>
+          <rect x="318" y="26" width="118" height="44" rx="4" fill="var(--surface-container)" stroke="var(--data-1)" stroke-width="1.5"/>
+          <text x="377" y="52" text-anchor="middle" font-family="var(--font-body)" font-size="11.5" font-weight="600" fill="var(--on-surface)">Produsen 3</text>
+
+          <path d="M83 70 L83 96 L377 96 L377 70" fill="none" stroke="var(--data-4)" stroke-width="2"/>
+          <line x1="230" y1="70" x2="230" y2="122" stroke="var(--data-4)" stroke-width="2"/>
+
+          <rect x="86" y="122" width="288" height="84" rx="6" fill="var(--primary-container)" stroke="var(--on-surface)" stroke-width="1.8"/>
+          <text x="230" y="148" text-anchor="middle" font-family="var(--font-label)" font-size="11" font-weight="700" fill="var(--on-surface)">KESEPAKATAN KOLUSI OLIGOPOLI</text>
+          <text x="230" y="170" text-anchor="middle" font-family="var(--font-body)" font-size="12" fill="var(--on-surface)">• Pembatasan Kuota Produksi Bersama</text>
+          <text x="230" y="190" text-anchor="middle" font-family="var(--font-body)" font-size="12" fill="var(--on-surface)">• Menjaga Harga Pasar Tetap Tinggi</text>
+        </svg>`;
+      }
+      if (type === 'digital-transition') {
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">
+          <rect x="18" y="34" width="184" height="172" rx="6" fill="var(--surface-container)" stroke="var(--outline-variant)" stroke-width="1.5"/>
+          <text x="110" y="60" text-anchor="middle" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="var(--on-surface-variant)">ERA KONVENSIONAL</text>
+          <text x="110" y="92" text-anchor="middle" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--on-surface)">Oligopoli Terbatas</text>
+          <text x="110" y="118" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--on-surface-variant)">• Pangkalan fisik (Konkret)</text>
+          <text x="110" y="140" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--on-surface-variant)">• Kuota izin ketat</text>
+          <text x="110" y="162" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--on-surface-variant)">• Hambatan masuk tinggi</text>
+
+          <line x1="208" y1="120" x2="250" y2="120" stroke="var(--data-2)" stroke-width="3"/>
+          <polygon points="246 113, 258 120, 246 127" fill="var(--data-2)"/>
+
+          <rect x="260" y="34" width="184" height="172" rx="6" fill="var(--petrol-tint)" stroke="var(--data-1)" stroke-width="1.8"/>
+          <text x="352" y="60" text-anchor="middle" font-family="var(--font-label)" font-size="10.5" font-weight="600" fill="var(--secondary)">ERA PLATFORM DARING</text>
+          <text x="352" y="92" text-anchor="middle" font-family="var(--font-body)" font-size="12" font-weight="700" fill="var(--on-surface)">Pasar Abstrak Terbuka</text>
+          <text x="352" y="118" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--on-surface)">• Transaksi via aplikasi</text>
+          <text x="352" y="140" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--on-surface)">• Jutaan mitra mudah masuk</text>
+          <text x="352" y="162" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--on-surface)">• Tarif dinamis penawaran</text>
+        </svg>`;
+      }
+      return '';
+    }
+
+    // Dual-Panel Substitute Goods SVG for Q18
+    function buildDualSubstituteSVG() {
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 240" aria-hidden="true">
+        <!-- Left panel: Train -->
+        <rect x="10" y="12" width="210" height="216" rx="4" fill="var(--surface-container-low)" stroke="var(--outline-variant)"/>
+        <text x="115" y="32" text-anchor="middle" font-family="var(--font-label)" font-size="10" font-weight="600" fill="var(--data-4)">1. PASAR TIKET KERETA API</text>
+        <line x1="42" y1="48" x2="42" y2="196" stroke="var(--on-surface)" stroke-width="1.5"/>
+        <line x1="42" y1="196" x2="198" y2="196" stroke="var(--on-surface)" stroke-width="1.5"/>
+        <line x1="65" y1="64" x2="175" y2="176" stroke="var(--data-4)" stroke-width="2.5"/>
+        <text x="178" y="176" font-family="var(--font-label)" font-size="10" font-weight="600" fill="var(--data-4)">D</text>
+        <line x1="42" y1="138" x2="138" y2="138" stroke="var(--data-context)" stroke-dasharray="3 3"/>
+        <line x1="138" y1="138" x2="138" y2="196" stroke="var(--data-context)" stroke-dasharray="3 3"/>
+        <line x1="42" y1="90" x2="90" y2="90" stroke="var(--data-4)" stroke-dasharray="3 3"/>
+        <line x1="90" y1="90" x2="90" y2="196" stroke="var(--data-4)" stroke-dasharray="3 3"/>
+        <circle cx="138" cy="138" r="4" fill="var(--data-context)"/>
+        <circle cx="90" cy="90" r="4.5" fill="var(--data-4)"/>
+        <text x="36" y="142" text-anchor="end" font-family="var(--font-label)" font-size="9.5" fill="var(--on-surface-variant)">P0</text>
+        <text x="36" y="94" text-anchor="end" font-family="var(--font-label)" font-size="9.5" font-weight="600" fill="var(--data-4)">P1↑</text>
+        <text x="115" y="216" text-anchor="middle" font-family="var(--font-label)" font-size="9.5" fill="var(--on-surface-variant)">Gerak Sepanjang Kurva</text>
+
+        <!-- Right panel: Travel -->
+        <rect x="240" y="12" width="210" height="216" rx="4" fill="var(--surface-container-low)" stroke="var(--outline-variant)"/>
+        <text x="345" y="32" text-anchor="middle" font-family="var(--font-label)" font-size="10" font-weight="600" fill="var(--data-1)">2. PASAR JASA TRAVEL</text>
+        <line x1="272" y1="48" x2="272" y2="196" stroke="var(--on-surface)" stroke-width="1.5"/>
+        <line x1="272" y1="196" x2="428" y2="196" stroke="var(--on-surface)" stroke-width="1.5"/>
+        <line x1="286" y1="176" x2="408" y2="66" stroke="var(--data-3)" stroke-width="2.2"/>
+        <text x="411" y="68" font-family="var(--font-label)" font-size="10" font-weight="600" fill="var(--data-3)">S</text>
+        <line x1="286" y1="74" x2="366" y2="176" stroke="var(--data-context)" stroke-width="2"/>
+        <text x="364" y="188" font-family="var(--font-label)" font-size="9.5" fill="var(--on-surface-variant)">D0</text>
+        <line x1="322" y1="62" x2="404" y2="168" stroke="var(--data-1)" stroke-width="2.6"/>
+        <text x="406" y="168" font-family="var(--font-label)" font-size="10" font-weight="600" fill="var(--data-1)">D1</text>
+        <circle cx="332" cy="133" r="4" fill="var(--data-context)"/>
+        <circle cx="355" cy="113" r="4.5" fill="var(--data-1)"/>
+        <text x="345" y="216" text-anchor="middle" font-family="var(--font-label)" font-size="9.5" fill="var(--data-1)">D0 Bergeser ke D1 (Kanan)</text>
+      </svg>`;
+    }
+
+    // =========================================================================
+    // 2. QUESTION BANK (30 TKA / HOTS ECONOMICS QUESTIONS)
+    // =========================================================================
+    const QUESTIONS = [
+      // --- MUDAH (1 - 10) ---
+      {
+        id: 1,
+        difficulty: `Mudah`,
+        topicKey: `TP 12 · Jenis Pasar`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Seorang konsumen membeli buah segar di Pasar Tradisional Beringharjo dengan menawar langsung kepada pedagang dan membawa pulang barang saat itu juga. Sementara itu, kakaknya membeli saham PT Telkom melalui aplikasi sekuritas daring di Bursa Efek Indonesia (BEI).`,
+        prompt: `Perbedaan mendasar antara kedua aktivitas transaksi tersebut dilihat dari wujud pasarnya adalah …`,
+        visualTitle: `Figur 01 · Perbandingan Wujud Pasar`,
+        visualNote: `TP 12 · Klasifikasi Wujud`,
+        visualCaption: `Skema transaksi fisik tatap muka dibandingkan transaksi melalui media elektronik.`,
+        svg: () => buildMarketDiagramSVG('concrete-vs-abstract'),
+        options: [
+          `Pasar Tradisional termasuk pasar abstrak karena ada tawar-menawar, sedangkan BEI merupakan pasar konkret.`,
+          `Pasar Tradisional merupakan pasar konkret (pertemuan fisik dan barang tersedia langsung), sedangkan BEI merupakan pasar abstrak (transaksi tanpa pertemuan fisik langsung).`,
+          `Pasar Tradisional tidak membentuk harga keseimbangan, sedangkan BEI selalu menetapkan harga tetap.`,
+          `Pasar Tradisional hanya memperjualbelikan barang konsumsi, sedangkan BEI hanya menjual barang fisik.`,
+          `Kedua pasar sama-sama termasuk pasar konkret karena terdapat pembeli dan penjual yang bersepakat.`
+        ],
+        correct: 1, // B
+        explanation: `Berdasarkan wujudnya, pasar dibedakan menjadi pasar konkret dan pasar abstrak. Pasar Tradisional mempertemukan penjual dan pembeli secara fisik serta barang tersedia langsung di tempat (pasar konkret). Sebaliknya, Bursa Efek Indonesia (BEI) melalui aplikasi sekuritas mempertemukan penawaran dan permintaan secara elektronik tanpa kehadiran fisik langsung dan tanpa barang berwujud yang diserahkan di tempat (pasar abstrak).`
+      },
+      {
+        id: 2,
+        difficulty: `Mudah`,
+        topicKey: `TP 12 · Struktur Pasar`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Di sentra grosir beras induk, terdapat ribuan petani pemasok dan pedagang yang menjual beras varietas sama dengan kualitas identik. Pembeli memiliki informasi lengkap mengenai harga pasar harian yang berlaku.`,
+        prompt: `Dalam struktur pasar persaingan sempurna seperti ilustrasi tersebut, kedudukan seorang penjual dalam menentukan harga adalah sebagai …`,
+        visualTitle: `Figur 02 · Kurva Permintaan Penjual Tunggal`,
+        visualNote: `TP 12 · Persaingan Sempurna`,
+        visualCaption: `Penjual individu menghadapi kurva permintaan horizontal pada tingkat harga pasar P*.`,
+        svg: () => buildCurveSVG({
+          qMax: 100, pMax: 100,
+          lines: [
+            { q1: 0, p1: 55, q2: 92, p2: 55, color: 'var(--data-1)', width: 3, label: 'd = AR = MR', lq: 62, lp: 62 }
+          ],
+          hLines: [{ p: 55, qEnd: 92, label: 'P*', color: 'var(--secondary)', dash: 'none' }],
+          notes: [{ q: 50, p: 25, text: 'Harga ditentukan agregat pasar', color: 'var(--on-surface-variant)' }]
+        }),
+        options: [
+          `Price maker karena mampu menaikkan harga jual secara sepihak.`,
+          `Price leader karena menjadi acuan bagi perusahaan pesaing lainnya.`,
+          `Price taker karena hanya menerima harga yang terbentuk dari mekanisme pasar.`,
+          `Price discriminator karena leluasa membedakan harga bagi tiap pembeli.`,
+          `Monopolist karena menguasai sebagian pasokan beras nasional.`
+        ],
+        correct: 2, // C
+        explanation: `Pada pasar persaingan sempurna terdapat sangat banyak penjual dan pembeli dengan produk yang homogen (identik), serta informasi pasar sempurna. Karena pangsa tiap penjual sangat kecil dibandingkan total pasar, satu penjual tidak dapat memengaruhi harga pasar dan hanya berperan sebagai penerima harga (price taker).`
+      },
+      {
+        id: 3,
+        difficulty: `Mudah`,
+        topicKey: `TP 12 · Monopoli`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `PT PLN (Persero) merupakan satu-satunya perusahaan penyedia layanan jaringan listrik rumah tangga di Indonesia tanpa barang substitusi dekat dan dilindungi regulasi negara (UUD 1945 Pasal 33).`,
+        prompt: `Karakteristik utama yang membedakan struktur pasar monopoli pada ilustrasi tersebut dari struktur pasar lainnya adalah …`,
+        visualTitle: `Figur 03 · Anatomi Pasar Monopoli`,
+        visualNote: `TP 12 · Konsentrasi Penjual`,
+        visualCaption: `Satu produsen tunggal menguasai 100% pasokan dengan hambatan masuk sangat tinggi.`,
+        svg: () => buildMarketDiagramSVG('monopoly-share'),
+        options: [
+          `Hanya ada satu penjual tunggal, tidak ada barang substitusi dekat, dan hambatan masuk pasar sangat tinggi.`,
+          `Terdapat banyak penjual dengan produk serupa yang terdiferensiasi melalui merek.`,
+          `Penjual bebas keluar masuk pasar tanpa hambatan regulasi maupun kebutuhan modal besar.`,
+          `Perusahaan wajib melakukan perang iklan besar-besaran untuk merebut pelanggan dari pesaing.`,
+          `Harga jual sepenuhnya ditetapkan oleh tawar-menawar langsung antara pembeli dan pesaing.`
+        ],
+        correct: 0, // A
+        explanation: `Ciri pokok pasar monopoli adalah hanya terdapat satu penjual atau produsen tunggal yang menguasai pasar, produknya tidak memiliki barang pengganti (substitusi) yang dekat, serta terdapat hambatan masuk yang sangat tinggi (baik berupa regulasi pemerintah, hak paten, penguasaan sumber daya, maupun skala modal besar) sehingga produsen bertindak sebagai price maker.`
+      },
+      {
+        id: 4,
+        difficulty: `Mudah`,
+        topicKey: `TP 12 · Monopolistik`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Di sepanjang jalan raya perkotaan, berjajar puluhan kedai kopi kekinian. Masing-masing kedai memiliki produk dasar serupa (kopi susu), tetapi menawarkan ciri khas cita rasa, kemasan gelas unik, konsep ruangan, dan merek dagang tersendiri.`,
+        prompt: `Struktur pasar yang paling tepat menggambarkan fenomena bisnis kedai kopi tersebut adalah …`,
+        visualTitle: `Figur 04 · Spektrum Struktur Pasar`,
+        visualNote: `TP 12 · Posisi Diferensiasi`,
+        visualCaption: `Posisi pasar persaingan monopolistik di antara persaingan sempurna dan oligopoli.`,
+        svg: () => buildMarketDiagramSVG('spectrum-monopolistic'),
+        options: [
+          `Pasar Monopoli murni`,
+          `Pasar Oligopoli murni`,
+          `Pasar Persaingan Sempurna`,
+          `Pasar Persaingan Monopolistik`,
+          `Pasar Monopsoni`
+        ],
+        correct: 3, // D
+        explanation: `Pasar persaingan monopolistik ditandai oleh banyaknya penjual yang relatif bebas keluar-masuk pasar, namun produk yang dijual memiliki diferensiasi (perbedaan corak, merek, rasa, kemasan, atau layanan) seperti pada industri kedai kopi, sampo, sabun, dan kosmetik.`
+      },
+      {
+        id: 5,
+        difficulty: `Mudah`,
+        topicKey: `TP 12 · Oligopoli`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Industri layanan telekomunikasi seluler dan industri semen di Indonesia hanya didominasi oleh beberapa perusahaan besar (sekitar 3–6 pemain utama). Kebijakan tarif satu perusahaan hampir selalu direspons oleh perusahaan pesaingnya.`,
+        prompt: `Ciri khas yang muncul pada struktur pasar seperti industri di atas adalah …`,
+        visualTitle: `Figur 05 · Saling Ketergantungan Oligopoli`,
+        visualNote: `TP 12 · Konsentrasi 3 Perusahaan`,
+        visualCaption: `Sedikit perusahaan dominan saling memantau dan merespons strategi harga/promosi.`,
+        svg: () => buildMarketDiagramSVG('oligopoly-interdep'),
+        options: [
+          `Tidak ada saling ketergantungan antarperusahaan dalam menetapkan harga jual.`,
+          `Produk yang dijual sama sekali tidak memerlukan promosi ataupun diferensiasi merek.`,
+          `Konsumen merupakan pihak tunggal yang menetapkan standar harga di pasar.`,
+          `Setiap pelaku usaha baru dapat masuk dengan biaya modal yang sangat kecil dan tanpa regulasi.`,
+          `Terdapat sedikit produsen besar yang saling memengaruhi dan memiliki ketergantungan strategis.`
+        ],
+        correct: 4, // E
+        explanation: `Pasar oligopoli hanya dikuasai oleh sedikit perusahaan besar (umumnya 2–10 perusahaan). Karena jumlah pemain sedikit dan masing-masing memiliki pangsa pasar signifikan, keputusan harga atau promosi satu perusahaan langsung memengaruhi penjualan pesaingnya (mutual interdependence).`
+      },
+      {
+        id: 6,
+        difficulty: `Mudah`,
+        topicKey: `TP 16 · Hukum Permintaan`,
+        topicGroup: `TP 16: Permintaan & Penawaran`,
+        stimulus: `Perhatikan kurva permintaan buah apel di sebuah pasar kota berikut pada kondisi ceteris paribus (faktor selain harga dianggap tetap).`,
+        prompt: `Berdasarkan hukum permintaan, hubungan antara tingkat harga (P) dan jumlah barang yang diminta (Qd) yang ditunjukkan oleh kurva tersebut adalah …`,
+        visualTitle: `Figur 06 · Kurva Permintaan Buah Apel`,
+        visualNote: `TP 16 · Slope Negatif`,
+        visualCaption: `Ketika harga turun dari Rp20rb ke Rp10rb, jumlah diminta naik dari 20 kg ke 40 kg.`,
+        svg: () => buildCurveSVG({
+          qMax: 60, pMax: 30, pLabel: 'P (rb)', qLabel: 'Q (kg)',
+          lines: [{ q1: 10, p1: 25, q2: 50, p2: 5, color: 'var(--data-4)', width: 3, label: 'D', lq: 52, lp: 5 }],
+          hLines: [
+            { p: 20, qEnd: 20, label: '20' },
+            { p: 10, qEnd: 40, label: '10' }
+          ],
+          vLines: [
+            { q: 20, pEnd: 20, label: '20' },
+            { q: 40, pEnd: 10, label: '40' }
+          ],
+          points: [
+            { q: 20, p: 20, label: 'A', color: 'var(--data-4)' },
+            { q: 40, p: 10, label: 'B', color: 'var(--data-4)' }
+          ]
+        }),
+        options: [
+          `Berbanding lurus, sehingga kurva miring dari kiri bawah ke kanan atas.`,
+          `Berbanding terbalik, sehingga kurva miring dari kiri atas ke kanan bawah (slope negatif).`,
+          `Selalu sejajar dengan sumbu horizontal pada setiap tingkat harga.`,
+          `Tidak memiliki keterkaitan karena permintaan hanya ditentukan oleh selera.`,
+          `Berbanding terbalik hanya untuk barang mewah, tetapi berbanding lurus untuk buah.`
+        ],
+        correct: 1, // B
+        explanation: `Hukum permintaan menyatakan bahwa ceteris paribus, apabila harga suatu barang naik maka jumlah barang yang diminta turun, dan sebaliknya apabila harga turun maka jumlah barang yang diminta naik. Hubungan negatif (berbanding terbalik) ini menghasilkan kurva permintaan miring dari kiri atas ke kanan bawah.`
+      },
+      {
+        id: 7,
+        difficulty: `Mudah`,
+        topicKey: `TP 16 · Hukum Penawaran`,
+        topicGroup: `TP 16: Permintaan & Penawaran`,
+        stimulus: `Saat harga jual cabai rawit di tingkat petani melonjak dari Rp30.000/kg menjadi Rp60.000/kg (ceteris paribus), jumlah cabai yang bersedia ditawarkan petani meningkat dari 100 kg menjadi 220 kg.`,
+        prompt: `Fenomena tersebut sesuai dengan bunyi hukum penawaran karena …`,
+        visualTitle: `Figur 07 · Kurva Penawaran Cabai Rawit`,
+        visualNote: `TP 16 · Slope Positif`,
+        visualCaption: `Kenaikan harga mendorong kuantitas ditawarkan bergerak naik dari (100, 30rb) ke (220, 60rb).`,
+        svg: () => buildCurveSVG({
+          qMax: 280, pMax: 80, pLabel: 'P (rb)', qLabel: 'Q (kg)',
+          lines: [{ q1: 40, p1: 15, q2: 250, p2: 67.5, color: 'var(--data-3)', width: 3, label: 'S', lq: 254, lp: 68 }],
+          hLines: [
+            { p: 30, qEnd: 100, label: '30' },
+            { p: 60, qEnd: 220, label: '60' }
+          ],
+          vLines: [
+            { q: 100, pEnd: 30, label: '100' },
+            { q: 220, pEnd: 60, label: '220' }
+          ],
+          points: [
+            { q: 100, p: 30, label: 'A', color: 'var(--data-3)' },
+            { q: 220, p: 60, label: 'B', color: 'var(--data-3)' }
+          ]
+        }),
+        options: [
+          `Ketika harga barang naik, produsen terdorong menambah jumlah barang yang ditawarkan untuk memaksimalkan keuntungan.`,
+          `Ketika harga barang naik, konsumen bersedia membeli barang dalam jumlah jauh lebih banyak.`,
+          `Kurva penawaran memiliki kemiringan negatif dari kiri atas ke kanan bawah.`,
+          `Jumlah barang yang ditawarkan oleh petani tidak pernah dipengaruhi oleh perubahan harga jual.`,
+          `Kenaikan harga selalu menyebabkan jumlah stok di gudang produsen berkurang drastis.`
+        ],
+        correct: 0, // A
+        explanation: `Hukum penawaran menyatakan bahwa ceteris paribus, jika harga barang naik maka jumlah barang yang ditawarkan bertambah, dan jika harga turun maka jumlah ditawarkan berkurang. Harga lebih tinggi memberikan insentif laba lebih besar bagi produsen sehingga kurva penawaran berslope positif (miring kiri bawah ke kanan atas).`
+      },
+      {
+        id: 8,
+        difficulty: `Mudah`,
+        topicKey: `TP 16 · Keseimbangan Pasar`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Pada grafik interaksi pasar sepatu olahraga berikut, kurva permintaan D berpotongan dengan kurva penawaran S tepat di titik E pada harga Rp250.000 dan kuantitas 500 pasang.`,
+        prompt: `Kondisi yang terjadi tepat pada titik E tersebut adalah …`,
+        visualTitle: `Figur 08 · Titik Keseimbangan Pasar Sepatu`,
+        visualNote: `TP 16 · Equilibrium`,
+        visualCaption: `Perpotongan kurva permintaan D dan penawaran S membentuk harga dan kuantitas keseimbangan.`,
+        svg: () => buildCurveSVG({
+          qMax: 900, pMax: 450, pLabel: 'P (rb)', qLabel: 'Q',
+          lines: [
+            { q1: 100, p1: 410, q2: 820, p2: 122, color: 'var(--data-4)', width: 2.6, label: 'D', lq: 828, lp: 122 },
+            { q1: 100, p1: 90, q2: 820, p2: 378, color: 'var(--data-3)', width: 2.6, label: 'S', lq: 828, lp: 378 }
+          ],
+          hLines: [{ p: 250, qEnd: 500, label: '250', color: 'var(--data-1)' }],
+          vLines: [{ q: 500, pEnd: 250, label: '500', color: 'var(--data-1)' }],
+          points: [{ q: 500, p: 250, label: 'E (500, 250)', color: 'var(--data-1)', dy: -11 }]
+        }),
+        options: [
+          `Terjadi kelebihan penawaran (excess supply) karena harga Rp250.000 terlalu tinggi.`,
+          `Terjadi kelangkaan barang (excess demand) karena daya beli masyarakat meningkat.`,
+          `Jumlah barang yang diminta konsumen tepat sama dengan jumlah barang yang ditawarkan produsen (Qd = Qs).`,
+          `Produsen mengalami kerugian sehingga harus menghentikan seluruh produksinya.`,
+          `Pemerintah wajib menetapkan harga eceran tertinggi di atas Rp250.000.`
+        ],
+        correct: 2, // C
+        explanation: `Titik keseimbangan pasar (market equilibrium) tercapai saat kurva permintaan berpotongan dengan kurva penawaran, yaitu ketika jumlah barang yang ingin dibeli konsumen sama persis dengan jumlah barang yang ingin dijual produsen (Qd = Qs) pada harga keseimbangan Pe = Rp250.000 dan Qe = 500 pasang.`
+      },
+      {
+        id: 9,
+        difficulty: `Mudah`,
+        topicKey: `TP 16 · Ketidakseimbangan`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Perhatikan grafik pasar beras berikut. Harga keseimbangan pasar adalah Rp12.000/kg, namun karena harga ditetapkan pada Rp15.000/kg, jumlah penawaran mencapai 800 ton sedangkan permintaan hanya 500 ton.`,
+        prompt: `Ketidakseimbangan pasar yang terjadi pada tingkat harga Rp15.000/kg tersebut dinamakan …`,
+        visualTitle: `Figur 09 · Ketidakseimbangan di Atas Pe`,
+        visualNote: `TP 16 · P > Pe`,
+        visualCaption: `Pada P = Rp15rb/kg, kuantitas ditawarkan (800 ton) melampaui kuantitas diminta (500 ton).`,
+        svg: () => buildCurveSVG({
+          qMax: 1100, pMax: 22, pLabel: 'P (rb)', qLabel: 'Q (ton)',
+          rects: [{ q1: 500, q2: 800, p1: 12, p2: 15, fill: 'var(--primary-container)', opacity: '0.32' }],
+          lines: [
+            { q1: 150, p1: 18.5, q2: 950, p2: 10.5, color: 'var(--data-4)', width: 2.5, label: 'D', lq: 958, lp: 10.5 },
+            { q1: 200, p1: 7, q2: 950, p2: 17, color: 'var(--data-3)', width: 2.5, label: 'S', lq: 958, lp: 17 }
+          ],
+          hLines: [
+            { p: 15, qEnd: 800, label: '15', color: 'var(--data-2)', dash: 'none', width: 2 },
+            { p: 12, qEnd: 650, label: 'Pe=12', color: 'var(--on-surface-variant)' }
+          ],
+          vLines: [
+            { q: 500, pEnd: 15, label: 'Qd=500', color: 'var(--data-4)' },
+            { q: 800, pEnd: 15, label: 'Qs=800', color: 'var(--data-3)' }
+          ],
+          points: [{ q: 650, p: 13, label: 'E', color: 'var(--on-surface)' }],
+          notes: [{ q: 650, p: 16.5, text: 'Selisih = 300 ton', color: 'var(--tertiary)' }]
+        }),
+        options: [
+          `Shortage (excess demand) sebesar 300 ton.`,
+          `Equilibrium baru pada kuantitas 650 ton.`,
+          `Defisit penawaran sebesar 1.300 ton.`,
+          `Surplus (excess supply) sebesar 300 ton.`,
+          `Monopoli pasar oleh pedagang beras.`
+        ],
+        correct: 3, // D
+        explanation: `Ketika harga pasar berada di atas harga keseimbangan (P = 15.000 > Pe = 12.000), jumlah yang ditawarkan produsen (Qs = 800 ton) lebih besar daripada jumlah yang diminta konsumen (Qd = 500 ton). Kondisi kelebihan penawaran sebesar 800 − 500 = 300 ton ini disebut surplus (excess supply).`
+      },
+      {
+        id: 10,
+        difficulty: `Mudah`,
+        topicKey: `TP 12 · Monopsoni`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Di suatu daerah perkebunan terpencil, terdapat ratusan petani tebu kecil yang hanya dapat menjual hasil panennya kepada satu-satunya pabrik gula yang beroperasi di wilayah tersebut.`,
+        prompt: `Dilihat dari sisi penguasaan pembeli, struktur pasar yang dihadapi para petani tebu tersebut adalah …`,
+        visualTitle: `Figur 10 · Struktur Pasar Sisi Pembeli`,
+        visualNote: `TP 12 · Konsentrasi Pembeli`,
+        visualCaption: `Banyak penjual kecil berhadapan dengan satu pembeli tunggal di wilayah setempat.`,
+        svg: () => buildMarketDiagramSVG('monopsony-flow'),
+        options: [
+          `Monopoli murni`,
+          `Oligopoli`,
+          `Monopsoni`,
+          `Persaingan monopolistik`,
+          `Persaingan sempurna`
+        ],
+        correct: 2, // C
+        explanation: `Monopsoni adalah struktur pasar di mana hanya ada satu pembeli tunggal (atau satu instansi pembeli dominan) yang berhadapan dengan banyak penjual. Pembeli tunggal tersebut memiliki kekuatan besar dalam menentukan harga beli komoditas dari para petani.`
+      },
+
+      // --- SEDANG (11 - 20) ---
+      {
+        id: 11,
+        difficulty: `Sedang`,
+        topicKey: `TP 16 · Hitungan Equilibrium`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Diketahui fungsi permintaan suatu barang adalah Qd = 80 − 2P dan fungsi penawarannya adalah Qs = −20 + 3P (harga P dalam ribuan rupiah).`,
+        prompt: `Harga keseimbangan (Pe) dan kuantitas keseimbangan (Qe) di pasar tersebut berturut-turut adalah …`,
+        visualTitle: `Figur 11 · Grafik Fungsi Qd dan Qs`,
+        visualNote: `TP 16 · Syarat Qd = Qs`,
+        visualCaption: `Tentukan koordinat titik potong E(Qe, Pe) dari kedua persamaan linear.`,
+        svg: () => buildCurveSVG({
+          qMax: 90, pMax: 50, pLabel: 'P (rb)', qLabel: 'Q',
+          lines: [
+            { q1: 0, p1: 40, q2: 80, p2: 0, color: 'var(--data-4)', width: 2.6, label: 'Qd = 80 - 2P', lq: 32, lp: 32 },
+            { q1: 0, p1: 6.67, q2: 85, p2: 35, color: 'var(--data-3)', width: 2.6, label: 'Qs = -20 + 3P', lq: 60, lp: 36 }
+          ],
+          hLines: [{ p: 20, qEnd: 40, label: 'Pe=?', color: 'var(--data-1)' }],
+          vLines: [{ q: 40, pEnd: 20, label: 'Qe=?', color: 'var(--data-1)' }],
+          points: [{ q: 40, p: 20, label: 'E (?, ?)', color: 'var(--data-1)', dy: -10 }]
+        }),
+        options: [
+          `Pe = 15 dan Qe = 50`,
+          `Pe = 25 dan Qe = 30`,
+          `Pe = 30 dan Qe = 20`,
+          `Pe = 20 dan Qe = 40`,
+          `Pe = 40 dan Qe = 100`
+        ],
+        correct: 3, // D
+        explanation: `Syarat keseimbangan pasar adalah Qd = Qs. Substitusikan kedua persamaan: 80 − 2P = −20 + 3P → 80 + 20 = 3P + 2P → 100 = 5P → Pe = 20. Kemudian substitusikan Pe = 20 ke Qd = 80 − 2(20) = 40 (cek Qs = −20 + 3(20) = 40). Jadi Pe = 20 dan Qe = 40.`
+      },
+      {
+        id: 12,
+        difficulty: `Sedang`,
+        topicKey: `TP 16 · Fungsi Permintaan`,
+        topicGroup: `TP 16: Permintaan & Penawaran`,
+        stimulus: `Skedul permintaan kopi kemasan mencatat: saat harga Rp10.000 per bungkus, jumlah yang diminta adalah 60 bungkus. Saat harga naik menjadi Rp14.000 per bungkus, jumlah yang diminta turun menjadi 40 bungkus.`,
+        prompt: `Berdasarkan data tersebut, fungsi permintaan (Qd) yang tepat (dengan P dalam rupiah penuh) adalah …`,
+        visualTitle: `Figur 12 · Pembentukan Fungsi Permintaan`,
+        visualNote: `TP 16 · Persamaan Garis Dua Titik`,
+        visualCaption: `Garis permintaan melalui dua titik koordinat (60, 10.000) dan (40, 14.000).`,
+        svg: () => buildCurveSVG({
+          qMax: 120, pMax: 24, pLabel: 'P (rb)', qLabel: 'Q',
+          lines: [{ q1: 0, p1: 22, q2: 110, p2: 0, color: 'var(--data-4)', width: 2.6, label: 'D', lq: 106, lp: 4 }],
+          hLines: [
+            { p: 14, qEnd: 40, label: '14rb' },
+            { p: 10, qEnd: 60, label: '10rb' }
+          ],
+          vLines: [
+            { q: 40, pEnd: 14, label: '40' },
+            { q: 60, pEnd: 10, label: '60' }
+          ],
+          points: [
+            { q: 40, p: 14, label: '(40, 14rb)', color: 'var(--data-4)' },
+            { q: 60, p: 10, label: '(60, 10rb)', color: 'var(--data-4)' }
+          ]
+        }),
+        options: [
+          `Qd = 100 − 0,005P`,
+          `Qd = 110 − 0,005P`,
+          `Qd = 110 + 0,005P`,
+          `Qd = 120 − 0,02P`,
+          `Qd = 80 − 0,004P`
+        ],
+        correct: 1, // B
+        explanation: `Gunakan rumus dua titik: (P − P1)/(P2 − P1) = (Q − Q1)/(Q2 − Q1). Dengan P1 = 10.000, Q1 = 60, P2 = 14.000, Q2 = 40: (P − 10.000)/4.000 = (Q − 60)/(−20). Kalikan silang: −20(P − 10.000) = 4.000(Q − 60). Bagi kedua ruas dengan 4.000: −0,005P + 50 = Q − 60 → Qd = 110 − 0,005P.`
+      },
+      {
+        id: 13,
+        difficulty: `Sedang`,
+        topicKey: `TP 16 · Pergeseran Kurva`,
+        topicGroup: `TP 16: Permintaan & Penawaran`,
+        stimulus: `Pemerintah menaikkan Upah Minimum Provinsi (UMP) sebesar 10% sehingga pendapatan riil masyarakat meningkat, sementara harga daging sapi di pasar tetap bertahan pada Rp130.000/kg.`,
+        prompt: `Dampak kondisi tersebut terhadap kurva permintaan daging sapi adalah …`,
+        visualTitle: `Figur 13 · Efek Kenaikan Pendapatan`,
+        visualNote: `TP 16 · Pergeseran Kurva Permintaan`,
+        visualCaption: `Perubahan faktor non-harga (pendapatan) pada harga tetap P = Rp130rb/kg.`,
+        svg: () => buildCurveSVG({
+          qMax: 100, pMax: 100, pLabel: 'P (rb)', qLabel: 'Q',
+          lines: [
+            { q1: 14, p1: 86, q2: 68, p2: 14, color: 'var(--data-context)', width: 2.2, label: 'D0', lq: 68, lp: 10 },
+            { q1: 36, p1: 86, q2: 90, p2: 14, color: 'var(--data-1)', width: 3, label: 'D1', lq: 90, lp: 10 }
+          ],
+          hLines: [{ p: 52, qEnd: 63, label: '130', color: 'var(--on-surface)' }],
+          vLines: [
+            { q: 40, pEnd: 52, label: 'Q0', color: 'var(--on-surface-variant)' },
+            { q: 63, pEnd: 52, label: 'Q1', color: 'var(--data-1)' }
+          ],
+          arrows: [{ q1: 42, p1: 58, q2: 61, p2: 58 }],
+          points: [
+            { q: 40, p: 52, color: 'var(--data-context)' },
+            { q: 63, p: 52, color: 'var(--data-1)' }
+          ]
+        }),
+        options: [
+          `Bergerak ke kanan bawah di sepanjang kurva permintaan yang sama.`,
+          `Bergerak ke kiri atas di sepanjang kurva permintaan yang sama.`,
+          `Kurva penawaran bergeser ke kiri karena biaya hidup pekerja naik.`,
+          `Kurva permintaan bergeser sejajar ke kiri (D0 → D2).`,
+          `Kurva permintaan bergeser sejajar ke kanan (D0 → D1).`
+        ],
+        correct: 4, // E
+        explanation: `Pergerakan sepanjang kurva hanya terjadi jika harga barang itu sendiri berubah. Karena yang berubah adalah pendapatan masyarakat (faktor non-harga) sementara harga daging sapi tetap, maka permintaan terhadap barang normal (daging sapi) meningkat pada setiap tingkat harga sehingga kurva permintaan bergeser ke kanan (D0 → D1).`
+      },
+      {
+        id: 14,
+        difficulty: `Sedang`,
+        topicKey: `TP 16 · Pergeseran Penawaran`,
+        topicGroup: `TP 16: Permintaan & Penawaran`,
+        stimulus: `Sebuah pabrik tekstil berhasil mengadopsi mesin tenun otomatis berteknologi tinggi yang memangkas biaya produksi per meter kain hingga 25% dan mempercepat kapasitas produksi harian.`,
+        prompt: `Bagaimana pengaruh inovasi teknologi tersebut terhadap kurva penawaran kain?`,
+        visualTitle: `Figur 14 · Dampak Efisiensi Teknologi`,
+        visualNote: `TP 16 · Pergeseran Kurva Penawaran`,
+        visualCaption: `Biaya produksi per unit turun memungkinkan jumlah ditawarkan bertambah pada tiap harga.`,
+        svg: () => buildCurveSVG({
+          qMax: 100, pMax: 100, pLabel: 'P', qLabel: 'Q',
+          lines: [
+            { q1: 16, p1: 86, q2: 86, p2: 16, color: 'var(--data-4)', width: 2.2, label: 'D', lq: 88, lp: 16 },
+            { q1: 14, p1: 20, q2: 66, p2: 84, color: 'var(--data-context)', width: 2.2, label: 'S0', lq: 66, lp: 88 },
+            { q1: 38, p1: 16, q2: 90, p2: 80, color: 'var(--data-3)', width: 3, label: 'S1', lq: 90, lp: 84 }
+          ],
+          arrows: [{ q1: 42, p1: 52, q2: 62, p2: 52 }],
+          points: [
+            { q: 44, p: 58, label: 'E0', color: 'var(--data-context)', dy: -10 },
+            { q: 58, p: 44, label: 'E1', color: 'var(--data-3)', dy: -10 }
+          ]
+        }),
+        options: [
+          `Kurva penawaran bergeser ke kanan bawah (S0 → S1) karena kapasitas produksi meningkat pada setiap tingkat harga.`,
+          `Kurva penawaran bergeser ke kiri atas (S0 → S2) karena harga jual menjadi lebih mahal.`,
+          `Terjadi pergerakan di sepanjang kurva penawaran menuju titik yang lebih rendah.`,
+          `Kurva permintaan bergeser ke kiri karena mesin otomatis menggantikan tenaga kerja.`,
+          `Kurva penawaran berubah menjadi tegak lurus vertikal (elastisitas nol).`
+        ],
+        correct: 0, // A
+        explanation: `Kemajuan teknologi produksi yang menurunkan biaya produksi per unit membuat produsen mampu memproduksi dan menawarkan lebih banyak output pada setiap tingkat harga. Akibatnya, kurva penawaran bergeser ke kanan bawah (S0 → S1), menurunkan harga keseimbangan dan menambah kuantitas keseimbangan.`
+      },
+      {
+        id: 15,
+        difficulty: `Sedang`,
+        topicKey: `TP 16 · Price Ceiling`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Diketahui fungsi permintaan Qd = 100 − P dan fungsi penawaran Qs = −20 + 2P. Pemerintah menetapkan kebijakan harga eceran tertinggi (price ceiling) sebesar P = 30.`,
+        prompt: `Dampak penetapan harga eceran tertinggi tersebut terhadap kondisi pasar adalah …`,
+        visualTitle: `Figur 15 · Kebijakan Price Ceiling (P = 30)`,
+        visualNote: `TP 16 · Harga Maksimum di Bawah Pe`,
+        visualCaption: `Garis harga maksimum P = 30 berada di bawah harga keseimbangan Pe = 40.`,
+        svg: () => buildCurveSVG({
+          qMax: 110, pMax: 105, pLabel: 'P', qLabel: 'Q',
+          rects: [{ q1: 40, q2: 70, p1: 30, p2: 40, fill: 'var(--data-4)', opacity: '0.24' }],
+          lines: [
+            { q1: 0, p1: 100, q2: 100, p2: 0, color: 'var(--data-4)', width: 2.5, label: 'D', lq: 96, lp: 10 },
+            { q1: 0, p1: 10, q2: 100, p2: 60, color: 'var(--data-3)', width: 2.5, label: 'S', lq: 98, lp: 64 }
+          ],
+          hLines: [
+            { p: 40, qEnd: 60, label: 'Pe=40', color: 'var(--on-surface-variant)' },
+            { p: 30, qEnd: 95, label: 'P=30', color: 'var(--data-4)', dash: 'none', width: 2, rightLabel: 'Ceiling' }
+          ],
+          vLines: [
+            { q: 40, pEnd: 30, label: 'Qs=40', color: 'var(--data-3)' },
+            { q: 70, pEnd: 30, label: 'Qd=70', color: 'var(--data-4)' }
+          ],
+          points: [{ q: 60, p: 40, label: 'E(60,40)', color: 'var(--on-surface)', dy: -11 }]
+        }),
+        options: [
+          `Terjadi surplus penawaran sebanyak 30 unit.`,
+          `Terjadi keseimbangan baru pada kuantitas 55 unit.`,
+          `Terjadi shortage (kekurangan pasokan) sebanyak 30 unit.`,
+          `Terjadi shortage sebanyak 40 unit.`,
+          `Tidak berdampak apa pun karena P = 30 berada di atas harga keseimbangan.`
+        ],
+        correct: 2, // C
+        explanation: `Pertama cari keseimbangan: 100 − P = −20 + 2P → 120 = 3P → Pe = 40, Qe = 60. Karena price ceiling P = 30 berada di bawah Pe = 40, kebijakan bersifat mengikat. Pada P = 30: Qd = 100 − 30 = 70 unit, sedangkan Qs = −20 + 2(30) = 40 unit. Karena Qd > Qs, terjadi shortage (kelangkaan / excess demand) sebesar 70 − 40 = 30 unit.`
+      },
+      {
+        id: 16,
+        difficulty: `Sedang`,
+        topicKey: `TP 12 · Perbandingan Pasar`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Perhatikan tabel perbandingan dua pasar berikut: Pasar X memperdagangkan komoditas gandum standar tanpa merek dengan ribuan penjual; Pasar Y menjual sabun mandi berbagai merek, aroma, dan kemasan oleh puluhan produsen.`,
+        prompt: `Pernyataan analisis yang paling tepat membandingkan Pasar X dan Pasar Y adalah …`,
+        visualTitle: `Figur 16 · Matriks Pasar X vs Pasar Y`,
+        visualNote: `TP 12 · Komparasi Struktur`,
+        visualCaption: `Perbandingan sifat produk, promosi, dan kekuatan penentuan harga di kedua pasar.`,
+        svg: () => buildMarketDiagramSVG('matrix-perfect-vs-monopolistic'),
+        options: [
+          `Di Pasar X produsen gencar beriklan untuk membedakan produk, sedangkan di Pasar Y iklan tidak diperlukan.`,
+          `Kedua pasar memiliki hambatan masuk sangat tinggi sehingga produsen baru sulit bergabung.`,
+          `Pasar X hanya memiliki satu pembeli, sedangkan Pasar Y hanya memiliki satu penjual.`,
+          `Pasar X memiliki produk homogen (price taker), sedangkan Pasar Y memiliki diferensiasi produk yang memberi sedikit kekuatan memengaruhi harga.`,
+          `Kurva permintaan satu perusahaan di Pasar Y berbentuk horizontal sempurna seperti di Pasar X.`
+        ],
+        correct: 3, // D
+        explanation: `Pasar X (gandum standar tanpa merek) adalah contoh pasar persaingan sempurna dengan produk homogen sehingga penjual bertindak sebagai price taker. Pasar Y (sabun bermerek) adalah pasar persaingan monopolistik dengan diferensiasi produk yang memungkinkan produsen memiliki sedikit kendali atas harga jualnya melalui loyalitas merek.`
+      },
+      {
+        id: 17,
+        difficulty: `Sedang`,
+        topicKey: `TP 12 · Monopoli Alamiah`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Layanan distribusi air bersih perpipaan daerah (PDAM) dikelola secara monopoli karena pembangunan dua atau lebih jaringan pipa paralel oleh perusahaan pesaing justru akan membuat biaya rata-rata (average cost) per pelanggan jauh lebih mahal.`,
+        prompt: `Fenomena ekonomi yang mendasari terbentuknya monopoli pada kasus PDAM tersebut adalah …`,
+        visualTitle: `Figur 17 · Kurva Biaya Rata-Rata Jangka Panjang`,
+        visualNote: `TP 12 · Economies of Scale`,
+        visualCaption: `Kurva LRAC terus menurun; 1 penyedia melayani Q besar dengan biaya jauh lebih rendah dari 2 penyedia.`,
+        svg: () => buildCurveSVG({
+          qMax: 100, pMax: 100, pLabel: 'Biaya/Unit', qLabel: 'Output (Q)',
+          paths: [{ pts: [[12, 86], [22, 62], [38, 42], [60, 28], [88, 22]], color: 'var(--data-1)', width: 3, label: 'LRAC', lq: 84, lp: 28 }],
+          hLines: [
+            { p: 54, qEnd: 28, label: 'C2', color: 'var(--data-4)' },
+            { p: 26, qEnd: 68, label: 'C1', color: 'var(--data-3)' }
+          ],
+          vLines: [
+            { q: 28, pEnd: 54, label: 'Q/2', color: 'var(--data-4)' },
+            { q: 68, pEnd: 26, label: 'Q penuh', color: 'var(--data-3)' }
+          ],
+          points: [
+            { q: 28, p: 54, label: '2 Pesaing', color: 'var(--data-4)', dy: -10 },
+            { q: 68, p: 26, label: '1 Monopolis', color: 'var(--data-3)', dy: -10 }
+          ]
+        }),
+        options: [
+          `Monopoli akibat penguasaan bahan mentah strategis (resource monopoly).`,
+          `Monopoli alamiah (natural monopoly) akibat skala ekonomis (economies of scale).`,
+          `Monopoli hasil kartel antarpelaku usaha swasta.`,
+          `Persaingan oligopoli terdiferensiasi.`,
+          `Pasar abstrak monopsonistik.`
+        ],
+        correct: 1, // B
+        explanation: `Monopoli alamiah (natural monopoly) muncul ketika skala ekonomis (economies of scale) sangat besar sehingga satu perusahaan tunggal mampu memasok seluruh pasar dengan biaya rata-rata lebih rendah dibandingkan jika pasar dibagi ke beberapa perusahaan pesaing (contohnya PDAM, jaringan transmisi listrik, dan rel kereta api).`
+      },
+      {
+        id: 18,
+        difficulty: `Sedang`,
+        topicKey: `TP 16 · Barang Substitusi`,
+        topicGroup: `TP 16: Permintaan & Penawaran`,
+        stimulus: `Harga tiket kereta api rute Jakarta–Bandung mengalami kenaikan tajam sebesar 40% menjelang liburan panjang, sedangkan tarif bus antarkota (travel) untuk rute yang sama tidak berubah.`,
+        prompt: `Sebagai barang substitusi, pengaruh kenaikan harga tiket kereta api terhadap pasar jasa travel Jakarta–Bandung adalah …`,
+        visualTitle: `Figur 18 · Efek Harga Barang Substitusi`,
+        visualNote: `TP 16 · Keterkaitan Dua Pasar`,
+        visualCaption: `Kenaikan tarif kereta menggerakkan Qd di pasar kereta dan menggeser permintaan di pasar travel.`,
+        svg: () => buildDualSubstituteSVG(),
+        options: [
+          `Kurva permintaan jasa travel bergeser ke kiri karena minat bepergian turun.`,
+          `Kurva penawaran jasa travel bergeser ke kiri karena biaya bahan bakar ikut naik.`,
+          `Terjadi pergerakan ke kanan sepanjang kurva permintaan tiket kereta api.`,
+          `Tidak ada pengaruh sama sekali terhadap kurva permintaan jasa travel.`,
+          `Kurva permintaan jasa travel bergeser ke kanan sehingga harga dan kuantitas keseimbangan jasa travel cenderung naik.`
+        ],
+        correct: 4, // E
+        explanation: `Kereta api dan jasa travel merupakan barang substitusi (saling menggantikan). Ketika harga tiket kereta api naik, jumlah penumpang kereta berkurang (bergerak ke kiri atas sepanjang kurva permintaan kereta) dan sebagian calon penumpang beralih memilih travel. Akibatnya, kurva permintaan jasa travel bergeser ke kanan (D0 → D1).`
+      },
+      {
+        id: 19,
+        difficulty: `Sedang`,
+        topicKey: `TP 16 · Bentuk P = f(Q)`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Diketahui fungsi permintaan suatu komoditas dinyatakan dalam bentuk Pd = 120 − 2Q dan fungsi penawarannya dinyatakan dengan Ps = 30 + Q.`,
+        prompt: `Nilai harga (Pe) dan kuantitas (Qe) pada titik keseimbangan pasar tersebut adalah …`,
+        visualTitle: `Figur 19 · Perpotongan Pd = 120 − 2Q dan Ps = 30 + Q`,
+        visualNote: `TP 16 · Invers Fungsi Harga`,
+        visualCaption: `Cari titik perpotongan dengan menyamakan Pd = Ps.`,
+        svg: () => buildCurveSVG({
+          qMax: 70, pMax: 135, pLabel: 'P', qLabel: 'Q',
+          lines: [
+            { q1: 0, p1: 120, q2: 60, p2: 0, color: 'var(--data-4)', width: 2.6, label: 'Pd = 120-2Q', lq: 28, lp: 74 },
+            { q1: 0, p1: 30, q2: 65, p2: 95, color: 'var(--data-3)', width: 2.6, label: 'Ps = 30+Q', lq: 46, lp: 92 }
+          ],
+          hLines: [{ p: 60, qEnd: 30, label: 'Pe=?', color: 'var(--data-1)' }],
+          vLines: [{ q: 30, pEnd: 60, label: 'Qe=?', color: 'var(--data-1)' }],
+          points: [{ q: 30, p: 60, label: 'E (?, ?)', color: 'var(--data-1)', dy: -10 }]
+        }),
+        options: [
+          `Pe = 60 dan Qe = 30`,
+          `Pe = 30 dan Qe = 60`,
+          `Pe = 50 dan Qe = 35`,
+          `Pe = 70 dan Qe = 25`,
+          `Pe = 90 dan Qe = 15`
+        ],
+        correct: 0, // A
+        explanation: `Karena kedua fungsi sudah berbentuk P = f(Q), syarat keseimbangan adalah Pd = Ps. Maka 120 − 2Q = 30 + Q → 120 − 30 = Q + 2Q → 90 = 3Q → Qe = 30. Substitusikan Qe = 30 ke Ps = 30 + 30 = 60 (cek Pd = 120 − 2(30) = 60). Jadi Pe = 60 dan Qe = 30.`
+      },
+      {
+        id: 20,
+        difficulty: `Sedang`,
+        topicKey: `TP 12 · Strategi Oligopoli`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Beberapa negara penghasil minyak tergabung dalam organisasi internasional untuk menyepakati kuota produksi bersama demi menjaga stabilitas harga minyak dunia di level tinggi.`,
+        prompt: `Praktik kolusi antarprodusen dalam pasar oligopoli seperti ilustrasi tersebut dikenal dengan istilah …`,
+        visualTitle: `Figur 20 · Mekanisme Kolusi Antarprodusen`,
+        visualNote: `TP 12 · Koordinasi Kuota Oligopoli`,
+        visualCaption: `Produsen besar bersekutu mengatur pasokan pasar agar harga tetap tinggi.`,
+        svg: () => buildMarketDiagramSVG('cartel-collusion'),
+        options: [
+          `Price discrimination`,
+          `Dumping`,
+          `Kartel`,
+          `Monopsoni`,
+          `Free entry`
+        ],
+        correct: 2, // C
+        explanation: `Kartel adalah kesepakatan resmi maupun informal antarperusahaan oligopoli untuk berkolusi membatasi output (kuota produksi) atau menetapkan harga bersama agar dapat bertindak menyerupai monopolis dan menjaga laba tetap tinggi.`
+      },
+
+      // --- SULIT / HOTS TKA (21 - 30) ---
+      {
+        id: 21,
+        difficulty: `Sulit`,
+        topicKey: `TP 16 · Pajak & Keseimbangan`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Fungsi permintaan suatu produk adalah Qd = 50 − P dan fungsi penawarannya adalah Qs = −10 + P. Pemerintah kemudian mengenakan pajak spesifik sebesar t = 6 per unit kepada produsen.`,
+        prompt: `Titik keseimbangan pasar setelah pajak (P'e, Q'e) dan total penerimaan pajak pemerintah (T) berturut-turut adalah …`,
+        visualTitle: `Figur 21 · Efek Pajak Spesifik (t = 6)`,
+        visualNote: `TP 16 · Pergeseran Penawaran S0 → St`,
+        visualCaption: `Pajak menggeser kurva penawaran vertikal ke atas sejauh t = 6; area terarsir adalah total pajak T.`,
+        svg: () => buildCurveSVG({
+          qMax: 52, pMax: 55, pLabel: 'P', qLabel: 'Q',
+          rects: [{ q1: 0, q2: 17, p1: 27, p2: 33, fill: 'var(--primary-container)', opacity: '0.32' }],
+          lines: [
+            { q1: 0, p1: 50, q2: 50, p2: 0, color: 'var(--data-4)', width: 2.5, label: 'D', lq: 46, lp: 8 },
+            { q1: 0, p1: 10, q2: 42, p2: 52, color: 'var(--data-context)', width: 2.2, label: 'S0', lq: 42, lp: 52 },
+            { q1: 0, p1: 16, q2: 36, p2: 52, color: 'var(--data-1)', width: 2.8, label: 'St', lq: 32, lp: 52 }
+          ],
+          hLines: [
+            { p: 30, qEnd: 20, label: '30', color: 'var(--on-surface-variant)' },
+            { p: 33, qEnd: 17, label: "P'e=?", color: 'var(--data-1)' }
+          ],
+          vLines: [
+            { q: 20, pEnd: 30, label: '20', color: 'var(--on-surface-variant)' },
+            { q: 17, pEnd: 33, label: "Q'e=?", color: 'var(--data-1)' }
+          ],
+          points: [
+            { q: 20, p: 30, label: 'E0', color: 'var(--on-surface-variant)', dx: 6, dy: 4 },
+            { q: 17, p: 33, label: 'E1', color: 'var(--data-1)', dx: 6, dy: -8 }
+          ],
+          notes: [{ q: 8.5, p: 29.5, text: 'T = t × Q\'e', color: 'var(--tertiary)' }]
+        }),
+        options: [
+          `P'e = 36, Q'e = 14, dan total pajak T = 84`,
+          `P'e = 33, Q'e = 20, dan total pajak T = 120`,
+          `P'e = 27, Q'e = 23, dan total pajak T = 138`,
+          `P'e = 33, Q'e = 17, dan total pajak T = 102`,
+          `P'e = 34, Q'e = 16, dan total pajak T = 96`
+        ],
+        correct: 3, // D
+        explanation: `Langkah 1: Ubah penawaran awal menjadi bentuk P: Qs = −10 + P → Ps = Q + 10. Langkah 2: Dengan pajak spesifik t = 6, kurva penawaran bergeser ke atas menjadi Pst = Q + 10 + 6 = Q + 16, atau dalam bentuk Q: Qst = P − 16. Langkah 3: Keseimbangan baru Qd = Qst → 50 − P = P − 16 → 66 = 2P → P'e = 33. Kuantitas baru Q'e = 50 − 33 = 17. Langkah 4: Total penerimaan pajak pemerintah T = t × Q'e = 6 × 17 = 102.`
+      },
+      {
+        id: 22,
+        difficulty: `Sulit`,
+        topicKey: `TP 16 · Subsidi & Manfaat`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Pasar masker kesehatan memiliki fungsi permintaan P = 40 − Q dan fungsi penawaran P = 10 + 0,5Q (dalam ribuan rupiah). Pemerintah memberikan subsidi kepada produsen sebesar s = 6 (ribu rupiah) per unit.`,
+        prompt: `Berdasarkan analisis matematis data tersebut, pernyataan yang paling tepat setelah pemberian subsidi adalah …`,
+        visualTitle: `Figur 22 · Efek Subsidi Produsen (s = 6rb)`,
+        visualNote: `TP 16 · Pergeseran Penawaran S0 → Ss`,
+        visualCaption: `Subsidi menggeser penawaran ke kanan bawah; sebagian subsidi dinikmati konsumen lewat turunnya harga.`,
+        svg: () => buildCurveSVG({
+          qMax: 44, pMax: 44, pLabel: 'P (rb)', qLabel: 'Q',
+          lines: [
+            { q1: 0, p1: 40, q2: 40, p2: 0, color: 'var(--data-4)', width: 2.5, label: 'D', lq: 38, lp: 6 },
+            { q1: 0, p1: 10, q2: 40, p2: 30, color: 'var(--data-context)', width: 2.2, label: 'S0', lq: 40, lp: 33 },
+            { q1: 0, p1: 4, q2: 40, p2: 24, color: 'var(--data-3)', width: 2.8, label: 'Ss', lq: 40, lp: 26 }
+          ],
+          hLines: [
+            { p: 20, qEnd: 20, label: 'Pe=20', color: 'var(--on-surface-variant)' },
+            { p: 16, qEnd: 24, label: "P'e=?", color: 'var(--data-3)' }
+          ],
+          vLines: [
+            { q: 20, pEnd: 20, label: '20', color: 'var(--on-surface-variant)' },
+            { q: 24, pEnd: 16, label: "Q'e=?", color: 'var(--data-3)' }
+          ],
+          points: [
+            { q: 20, p: 20, label: 'E0', color: 'var(--on-surface-variant)', dx: 4, dy: -8 },
+            { q: 24, p: 16, label: 'E1', color: 'var(--data-3)', dx: 4, dy: -8 }
+          ]
+        }),
+        options: [
+          `Harga keseimbangan naik menjadi Rp24.000 dan kuantitas turun menjadi 16 unit.`,
+          `Harga keseimbangan turun menjadi Rp16.000, kuantitas naik menjadi 24 unit, dan subsidi yang dinikmati konsumen Rp4.000/unit.`,
+          `Harga keseimbangan turun menjadi Rp14.000, kuantitas naik menjadi 26 unit, dan seluruh subsidi dinikmati produsen.`,
+          `Harga keseimbangan turun menjadi Rp16.000, kuantitas menjadi 24 unit, dengan total anggaran subsidi Rp120.000.`,
+          `Kurva penawaran bergeser ke kiri atas sehingga menimbulkan kelebihan permintaan.`
+        ],
+        correct: 1, // B
+        explanation: `Sebelum subsidi: 40 − Q = 10 + 0,5Q → 30 = 1,5Q → Qe = 20 dan Pe = 20 (Rp20.000). Setelah subsidi s = 6: kurva penawaran bergeser turun menjadi Pss = 10 + 0,5Q − 6 = 4 + 0,5Q. Keseimbangan baru: 40 − Q = 4 + 0,5Q → 36 = 1,5Q → Q'e = 24 unit, dan P'e = 40 − 24 = 16 (Rp16.000). Subsidi per unit yang dinikmati konsumen (sk) = Pe − P'e = 20 − 16 = 4 (Rp4.000/unit), sedangkan sisanya Rp2.000/unit dinikmati produsen (total subsidi pemerintah = 6 × 24 = Rp144.000).`
+      },
+      {
+        id: 23,
+        difficulty: `Sulit`,
+        topicKey: `TP 16 · Pergeseran Ganda`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Menjelang Hari Raya Idulfitri, permintaan masyarakat terhadap daging ayam meningkat tajam. Pada waktu bersamaan, wabah penyakit unggas menyerang peternakan sehingga pasokan daging ayam berkurang drastis (besar pergeseran masing-masing kurva tidak diketahui secara pasti).`,
+        prompt: `Analisis dampak simultan kedua peristiwa tersebut terhadap titik keseimbangan pasar daging ayam adalah …`,
+        visualTitle: `Figur 23 · Pergeseran Ganda D↑ dan S↓`,
+        visualNote: `TP 16 · Analisis Simultan HOTS`,
+        visualCaption: `Permintaan bergeser ke kanan (D0 → D1) sekaligus penawaran bergeser ke kiri (S0 → S1).`,
+        svg: () => buildCurveSVG({
+          qMax: 100, pMax: 100, pLabel: 'P', qLabel: 'Q',
+          lines: [
+            { q1: 12, p1: 72, q2: 70, p2: 14, color: 'var(--data-context)', width: 2, label: 'D0', lq: 72, lp: 14 },
+            { q1: 30, p1: 92, q2: 88, p2: 34, color: 'var(--data-1)', width: 2.8, label: 'D1', lq: 90, lp: 34 },
+            { q1: 28, p1: 14, q2: 86, p2: 72, color: 'var(--data-context)', width: 2, label: 'S0', lq: 88, lp: 74 },
+            { q1: 10, p1: 34, q2: 68, p2: 92, color: 'var(--data-4)', width: 2.8, label: 'S1', lq: 70, lp: 92 }
+          ],
+          hLines: [
+            { p: 43, qEnd: 41, label: 'P0', color: 'var(--on-surface-variant)' },
+            { p: 63, qEnd: 39, label: 'P1↑', color: 'var(--data-4)' }
+          ],
+          vLines: [{ q: 41, pEnd: 43, label: 'Q0', color: 'var(--on-surface-variant)' }],
+          points: [
+            { q: 41, p: 43, label: 'E0', color: 'var(--on-surface-variant)', dx: 6, dy: 4 },
+            { q: 39, p: 63, label: 'E1', color: 'var(--data-4)', dx: 6, dy: -6 }
+          ],
+          notes: [{ q: 52, p: 8, text: 'Q1 ambigu (tergantung skala geser)', color: 'var(--secondary)' }]
+        }),
+        options: [
+          `Harga keseimbangan pasti naik, sedangkan kuantitas keseimbangan bersifat ambigu (dapat naik, turun, atau tetap) tergantung besarnya pergeseran masing-masing kurva.`,
+          `Harga keseimbangan pasti turun, sedangkan kuantitas keseimbangan pasti naik.`,
+          `Kuantitas keseimbangan pasti naik, sedangkan harga keseimbangan bersifat tidak tentu.`,
+          `Kedua kurva bergeser ke kanan sehingga harga keseimbangan menjadi tidak menentu.`,
+          `Baik harga maupun kuantitas keseimbangan pasti turun secara bersamaan.`
+        ],
+        correct: 0, // A
+        explanation: `Permintaan naik (D bergeser ke kanan) mendorong harga naik dan kuantitas naik. Penawaran turun (S bergeser ke kiri) mendorong harga naik dan kuantitas turun. Karena kedua peristiwa sama-sama mendorong harga ke atas, harga keseimbangan pasti naik. Sebaliknya, efek terhadap kuantitas saling berlawanan arah sehingga perubahan Q'e bersifat ambigu (tergantung kurva mana yang bergeser lebih besar).`
+      },
+      {
+        id: 24,
+        difficulty: `Sulit`,
+        topicKey: `TP 16 · Harga Dasar`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Untuk melindungi petani jagung, pemerintah menetapkan harga dasar (floor price) sebesar Rp5.500/kg. Diketahui fungsi permintaan jagung Qd = 1.600 − 0,2P dan fungsi penawaran Qs = −200 + 0,2P (Q dalam ton, P dalam rupiah/kg).`,
+        prompt: `Jika pemerintah berkomitmen membeli seluruh kelebihan pasokan jagung akibat kebijakan floor price tersebut, berapa ton surplus yang terjadi dan total anggaran yang harus disiapkan?`,
+        visualTitle: `Figur 24 · Floor Price & Pembelian Pemerintah`,
+        visualNote: `TP 16 · P = Rp5.500/kg (1 ton = 1.000 kg)`,
+        visualCaption: `Area terarsir menunjukkan anggaran pembelian pemerintah sebesar P_floor × (Qs − Qd).`,
+        svg: () => buildCurveSVG({
+          qMax: 1200, pMax: 7500, pLabel: 'P (Rp/kg)', qLabel: 'Q (ton)',
+          rects: [{ q1: 500, q2: 900, p1: 0, p2: 5500, fill: 'var(--primary-container)', opacity: '0.28', stroke: 'var(--data-2)' }],
+          lines: [
+            { q1: 100, p1: 7500, q2: 1150, p2: 2250, color: 'var(--data-4)', width: 2.5, label: 'D', lq: 1158, lp: 2250 },
+            { q1: 0, p1: 1000, q2: 1150, p2: 6750, color: 'var(--data-3)', width: 2.5, label: 'S', lq: 1158, lp: 6750 }
+          ],
+          hLines: [
+            { p: 5500, qEnd: 1050, label: '5.500', color: 'var(--data-2)', dash: 'none', width: 2, rightLabel: 'Floor' },
+            { p: 4500, qEnd: 700, label: 'Pe=4.500', color: 'var(--on-surface-variant)' }
+          ],
+          vLines: [
+            { q: 500, pEnd: 5500, label: 'Qd', color: 'var(--data-4)' },
+            { q: 900, pEnd: 5500, label: 'Qs', color: 'var(--data-3)' }
+          ],
+          points: [{ q: 700, p: 4500, label: 'E', color: 'var(--on-surface)', dy: -10 }]
+        }),
+        options: [
+          `Surplus 200 ton dengan anggaran Rp1,1 miliar`,
+          `Surplus 400 ton dengan anggaran Rp1,8 miliar`,
+          `Shortage 400 ton dengan anggaran Rp2,2 miliar`,
+          `Surplus 500 ton dengan anggaran Rp2,75 miliar`,
+          `Surplus 400 ton dengan anggaran Rp2,2 miliar`
+        ],
+        correct: 4, // E
+        explanation: `Cek keseimbangan awal: 1.600 − 0,2P = −200 + 0,2P → 1.800 = 0,4P → Pe = Rp4.500/kg, Qe = 700 ton. Karena floor price Rp5.500 > Pe, terjadi surplus. Pada P = 5.500: Qd = 1.600 − 0,2(5.500) = 500 ton, dan Qs = −200 + 0,2(5.500) = 900 ton. Surplus = 900 − 500 = 400 ton (= 400.000 kg). Total anggaran pembelian = 400.000 kg × Rp5.500 = Rp2.200.000.000 (Rp2,2 miliar).`
+      },
+      {
+        id: 25,
+        difficulty: `Sulit`,
+        topicKey: `TP 12 · Transformasi Pasar`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Sebelum 2015, pasar layanan taksi konvensional di kota besar dikuasai beberapa perusahaan besar dengan tarif seragam berbasis argometer dan hambatan masuk tinggi (izin kuota). Hadirnya platform transportasi daring memungkinkan jutaan mitra pengemudi masuk pasar serta mempertemukan penumpang secara digital tanpa pangkalan fisik.`,
+        prompt: `Transformasi ekonomi yang terjadi dalam kasus tersebut dari perspektif jenis dan struktur pasar adalah …`,
+        visualTitle: `Figur 25 · Disrupsi Digital Struktur Pasar`,
+        visualNote: `TP 12 · Konkret Oligopoli → Abstrak Terbuka`,
+        visualCaption: `Perubahan mekanisme pertemuan, hambatan masuk (barrier to entry), dan dinamika persaingan.`,
+        svg: () => buildMarketDiagramSVG('digital-transition'),
+        options: [
+          `Perubahan dari pasar persaingan sempurna menuju monopoli murni karena aplikasi menjadi penguasa tunggal.`,
+          `Pergeseran dari pasar abstrak menuju pasar konkret karena pengemudi dan penumpang bertemu di jalan.`,
+          `Pergeseran dari pasar konkret berstruktur oligopoli ketat menuju pasar abstrak dengan hambatan masuk jauh lebih rendah dan persaingan lebih terbuka.`,
+          `Terbentuknya struktur monopsoni murni di mana penumpang hanya dapat memilih satu jenis kendaraan.`,
+          `Hilangnya mekanisme keseimbangan harga karena seluruh tarif ditetapkan sepihak oleh pemerintah.`
+        ],
+        correct: 2, // C
+        explanation: `Transportasi taksi konvensional di masa lalu dikuasai segelintir operator besar (oligopoli) dengan hambatan masuk tinggi (kuota/izin armada). Digitalisasi via platform aplikasi memindahkan proses pencocokan transaksi ke ruang digital (pasar abstrak) sekaligus menurunkan hambatan masuk bagi mitra pengemudi sehingga tingkat persaingan meningkat tajam.`
+      },
+      {
+        id: 26,
+        difficulty: `Sulit`,
+        topicKey: `TP 16 · Analisis Grafik`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Perhatikan grafik permintaan dan penawaran sebuah produk elektronik mini berikut. Kurva D memotong sumbu P di 100 dan sumbu Q di 50; sedangkan kurva S memotong sumbu P di 20 dan melalui titik (30, 80).`,
+        prompt: `Berdasarkan kurva pada grafik, titik keseimbangan pasar dan kondisi yang terjadi apabila harga pasar berada pada P = 70 adalah …`,
+        visualTitle: `Figur 26 · Derivasi Persamaan dari Grafik`,
+        visualNote: `TP 16 · Baca Koordinat Kurva`,
+        visualCaption: `Gunakan koordinat titik potong untuk menyusun fungsi D dan S terlebih dahulu.`,
+        svg: () => buildCurveSVG({
+          qMax: 60, pMax: 110, pLabel: 'P', qLabel: 'Q',
+          lines: [
+            { q1: 0, p1: 100, q2: 50, p2: 0, color: 'var(--data-4)', width: 2.6, label: 'D', lq: 48, lp: 8 },
+            { q1: 0, p1: 20, q2: 40, p2: 100, color: 'var(--data-3)', width: 2.6, label: 'S', lq: 42, lp: 102 }
+          ],
+          hLines: [{ p: 70, qEnd: 46, label: 'P=70', color: 'var(--data-2)', dash: '4 3', width: 1.6 }],
+          points: [
+            { q: 0, p: 100, label: '(0,100)', color: 'var(--data-4)', dx: 6, dy: 4 },
+            { q: 50, p: 0, label: '(50,0)', color: 'var(--data-4)', dx: 4, dy: -8 },
+            { q: 0, p: 20, label: '(0,20)', color: 'var(--data-3)', dx: 6, dy: 4 },
+            { q: 30, p: 80, label: '(30,80)', color: 'var(--data-3)', dx: 6, dy: 4 },
+            { q: 20, p: 60, label: 'E(?,?)', color: 'var(--data-1)', dx: 6, dy: 6 }
+          ]
+        }),
+        options: [
+          `Keseimbangan pada Pe = 60, Qe = 20; dan saat P = 70 terjadi shortage 10 unit.`,
+          `Keseimbangan pada Pe = 50, Qe = 25; dan saat P = 70 terjadi surplus 20 unit.`,
+          `Keseimbangan pada Pe = 60, Qe = 20; dan saat P = 70 terjadi surplus 15 unit.`,
+          `Keseimbangan pada Pe = 60, Qe = 20; dan saat P = 70 terjadi surplus 10 unit.`,
+          `Keseimbangan pada Pe = 70, Qe = 25; karena penawaran mendominasi pasar.`
+        ],
+        correct: 3, // D
+        explanation: `Dari grafik: Kurva D melalui (0, 100) dan (50, 0) → gradien −100/50 = −2, sehingga Pd = 100 − 2Q (atau Qd = 50 − 0,5P). Kurva S melalui (0, 20) dan (30, 80) → gradien (80−20)/30 = +2, sehingga Ps = 20 + 2Q (atau Qs = −10 + 0,5P). Keseimbangan: 100 − 2Q = 20 + 2Q → 80 = 4Q → Qe = 20, Pe = 60. Saat P = 70: Qd = 50 − 0,5(70) = 15 dan Qs = −10 + 0,5(70) = 25, sehingga terjadi surplus 25 − 15 = 10 unit.`
+      },
+      {
+        id: 27,
+        difficulty: `Sulit`,
+        topicKey: `TP 12 · Kurva Patah Oligopoli`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Tiga produsen air minum kemasan besar menguasai 85% pangsa pasar nasional. Saat Perusahaan A menurunkan harga Rp500/botol, Perusahaan B dan C segera ikut menurunkan harga sehingga pangsa pasar tidak berubah banyak. Namun saat Perusahaan A menaikkan harga Rp500/botol, pesaing memilih mempertahankan harga lama.`,
+        prompt: `Berdasarkan perilaku strategis oligopolis tersebut, langkah paling rasional yang cenderung dipilih perusahaan di pasar ini adalah …`,
+        visualTitle: `Figur 27 · Kurva Permintaan Patah (Kinked Demand)`,
+        visualNote: `TP 12 · Kekakuan Harga Oligopoli`,
+        visualCaption: `Bagian atas kurva landai (pesaing tidak ikut naik), bagian bawah curam (pesaing ikut turun).`,
+        svg: () => buildCurveSVG({
+          qMax: 100, pMax: 100, pLabel: 'P', qLabel: 'Q',
+          paths: [{ pts: [[12, 74], [48, 56], [62, 14]], color: 'var(--data-1)', width: 3, label: 'D (Patah)', lq: 64, lp: 18 }],
+          hLines: [{ p: 56, qEnd: 48, label: 'P*', color: 'var(--on-surface)' }],
+          vLines: [{ q: 48, pEnd: 56, label: 'Q*', color: 'var(--on-surface)' }],
+          points: [{ q: 48, p: 56, label: 'Titik Patah (Kink)', color: 'var(--data-2)', dx: 8, dy: -6 }],
+          notes: [
+            { q: 28, p: 78, text: 'Naik P → Elastis', color: 'var(--secondary)' },
+            { q: 76, p: 36, text: 'Turun P → Inelastis', color: 'var(--data-4)' }
+          ]
+        }),
+        options: [
+          `Terus melakukan perang harga (price war) ke bawah hingga harga mendekati nol.`,
+          `Menghindari persaingan harga (price rigidity) dan berfokus pada persaingan non-harga seperti inovasi kemasan, distribusi, dan iklan.`,
+          `Menyerahkan penetapan harga sepenuhnya kepada konsumen seperti pada pasar persaingan sempurna.`,
+          `Menaikkan harga setinggi mungkin secara sepihak tanpa khawatir kehilangan pelanggan.`,
+          `Membuka rahasia formula produksi kepada pesaing baru agar pasar semakin kompetitif.`
+        ],
+        correct: 1, // B
+        explanation: `Model kurva permintaan patah (kinked demand curve) menjelaskan mengapa harga di pasar oligopoli cenderung kaku (price rigidity). Menaikkan harga merugikan karena pesaing tidak ikut naik (pelanggan lari), sedangkan menurunkan harga juga tidak menambah pangsa pasar karena pesaing langsung membalas. Oleh karena itu, perusahaan lebih rasional bersaing secara non-harga (kualitas, kemasan, iklan, dan jaringan distribusi).`
+      },
+      {
+        id: 28,
+        difficulty: `Sulit`,
+        topicKey: `TP 16 · Insiden Pajak`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Permintaan suatu barang esensial seperti insulin sangat inelastis (kurva sangat curam), sedangkan penawarannya relatif elastis (kurva landai). Pemerintah menerapkan cukai/pajak spesifik per unit kepada produsen.`,
+        prompt: `Berdasarkan karakteristik kemiringan kurva permintaan dan penawaran tersebut, pihak yang menanggung beban pajak (tax incidence) paling besar adalah …`,
+        visualTitle: `Figur 28 · Insiden Pajak pada Permintaan Inelastis`,
+        visualNote: `TP 16 · Beban Konsumen vs Produsen`,
+        visualCaption: `Kenaikan harga P0 → P1 menyerap hampir seluruh pajak t karena konsumen sulit mencari pengganti.`,
+        svg: () => buildCurveSVG({
+          qMax: 100, pMax: 100, pLabel: 'P', qLabel: 'Q',
+          rects: [
+            { q1: 0, q2: 42, p1: 42, p2: 64, fill: 'var(--data-4)', opacity: '0.26' },
+            { q1: 0, q2: 42, p1: 36, p2: 42, fill: 'var(--data-3)', opacity: '0.26' }
+          ],
+          lines: [
+            { q1: 34, p1: 92, q2: 52, p2: 12, color: 'var(--data-4)', width: 3, label: 'D (Inelastis)', lq: 54, lp: 14 },
+            { q1: 12, p1: 28, q2: 88, p2: 56, color: 'var(--data-context)', width: 2.2, label: 'S0', lq: 88, lp: 58 },
+            { q1: 12, p1: 54, q2: 88, p2: 82, color: 'var(--data-1)', width: 2.8, label: 'St', lq: 88, lp: 84 }
+          ],
+          hLines: [
+            { p: 64, qEnd: 42, label: 'P1', color: 'var(--data-4)' },
+            { p: 42, qEnd: 46, label: 'P0', color: 'var(--on-surface-variant)' }
+          ],
+          vLines: [{ q: 42, pEnd: 64, label: 'Q1', color: 'var(--on-surface)' }],
+          points: [
+            { q: 46, p: 42, color: 'var(--on-surface-variant)' },
+            { q: 42, p: 64, color: 'var(--data-4)' }
+          ],
+          notes: [{ q: 21, p: 53, text: 'Beban Konsumen', color: 'var(--data-4)' }]
+        }),
+        options: [
+          `Konsumen menanggung porsi beban pajak jauh lebih besar melalui kenaikan harga jual yang tinggi.`,
+          `Produsen menanggung seluruh pajak 100% karena pajak ditagihkan langsung kepada pihak produsen.`,
+          `Beban pajak selalu terbagi tepat 50% : 50% antara konsumen dan produsen.`,
+          `Pemerintah menanggung beban pajak karena kuantitas terjual meningkat drastis.`,
+          `Tidak ada pihak yang terbebani karena harga keseimbangan tetap konstan.`
+        ],
+        correct: 0, // A
+        explanation: `Pembagian beban pajak (tax incidence) tidak ditentukan oleh siapa yang menyetor pajak secara administratif, melainkan oleh elastisitas relatif permintaan dan penawaran. Pihak yang lebih inelastis (kurva lebih curam, yaitu konsumen yang tidak punya substitusi obat esensial) menanggung porsi beban pajak jauh lebih besar melalui lonjakan harga P0 → P1.`
+      },
+      {
+        id: 29,
+        difficulty: `Sulit`,
+        topicKey: `TP 12 & 16 · Integrasi Pasar`,
+        topicGroup: `TP 12: Jenis & Struktur Pasar`,
+        stimulus: `Sebuah komoditas sebelumnya berada dalam kondisi pasar persaingan sempurna dengan harga keseimbangan Pc dan output Qc. Kemudian terjadi merger besar-besaran hingga hanya tersisa satu perusahaan monopolis tunggal yang menguasai seluruh pasar tanpa perubahan struktur biaya maupun kurva permintaan.`,
+        prompt: `Bagaimana perbandingan harga dan kuantitas keseimbangan setelah pasar berubah menjadi monopoli dibandingkan kondisi persaingan sempurna sebelumnya?`,
+        visualTitle: `Figur 29 · Keseimbangan Kompetitif vs Monopoli`,
+        visualNote: `TP 12 & TP 16 · Efisiensi Pasar`,
+        visualCaption: `Monopolis membatasi output (Qm < Qc) untuk menaikkan harga (Pm > Pc).`,
+        svg: () => buildCurveSVG({
+          qMax: 100, pMax: 100, pLabel: 'P', qLabel: 'Q',
+          polygons: [{ pts: [[38, 62], [60, 40], [38, 28]], fill: 'var(--data-4)', opacity: '0.26' }],
+          lines: [
+            { q1: 10, p1: 90, q2: 90, p2: 10, color: 'var(--data-1)', width: 2.6, label: 'D (AR)', lq: 84, lp: 20 },
+            { q1: 10, p1: 90, q2: 50, p2: 10, color: 'var(--data-context)', width: 2, dash: '4 3', label: 'MR', lq: 48, lp: 10 },
+            { q1: 10, p1: 16, q2: 88, p2: 54, color: 'var(--data-3)', width: 2.6, label: 'MC (S)', lq: 84, lp: 58 }
+          ],
+          hLines: [
+            { p: 62, qEnd: 38, label: 'Pm', color: 'var(--data-4)' },
+            { p: 40, qEnd: 60, label: 'Pc', color: 'var(--data-3)' }
+          ],
+          vLines: [
+            { q: 38, pEnd: 62, label: 'Qm', color: 'var(--data-4)' },
+            { q: 60, pEnd: 40, label: 'Qc', color: 'var(--data-3)' }
+          ],
+          points: [
+            { q: 38, p: 62, label: 'Monopoli', color: 'var(--data-4)', dx: 6, dy: -6 },
+            { q: 60, p: 40, label: 'Sempurna', color: 'var(--data-3)', dx: 6, dy: -6 }
+          ]
+        }),
+        options: [
+          `Harga menjadi lebih rendah (Pm < Pc) dan kuantitas output lebih banyak (Qm > Qc).`,
+          `Harga tetap sama (Pm = Pc), tetapi kuantitas output meningkat (Qm > Qc).`,
+          `Harga menjadi lebih tinggi (Pm > Pc) disertai kuantitas output yang juga lebih besar (Qm > Qc).`,
+          `Tidak terjadi perubahan harga maupun kuantitas karena permintaan konsumen tetap sama.`,
+          `Harga menjadi lebih tinggi (Pm > Pc) dan kuantitas output lebih sedikit (Qm < Qc).`
+        ],
+        correct: 4, // E
+        explanation: `Pada pasar persaingan sempurna, keseimbangan tercapai di perpotongan D dan S (P = MC) dengan output Qc dan harga Pc. Ketika menjadi monopoli, produsen memaksimalkan laba dengan membatasi produksi pada MR = MC (Qm < Qc) lalu menetapkan harga lebih tinggi pada kurva permintaan (Pm > Pc), yang juga menimbulkan hilangnya kesejahteraan sosial (deadweight loss).`
+      },
+      {
+        id: 30,
+        difficulty: `Sulit`,
+        topicKey: `TP 16 · Pajak + Pergeseran D`,
+        topicGroup: `TP 16: Keseimbangan & Kebijakan`,
+        stimulus: `Pasar sepeda listrik memiliki fungsi permintaan awal Qd = 120 − 2P dan penawaran Qs = −30 + 3P (P dalam jutaan rupiah). Tahun berikutnya, tren gaya hidup hijau menggeser permintaan menjadi Q'd = 145 − 2P, sementara pemerintah mengenakan pajak spesifik t = 5 (juta rupiah) per unit kepada produsen.`,
+        prompt: `Bagaimana perubahan titik keseimbangan baru (P1, Q1) dibandingkan kondisi awal (P0, Q0)?`,
+        visualTitle: `Figur 30 · Kombinasi Permintaan Naik + Pajak`,
+        visualNote: `TP 16 · Studi Kasus Terpadu`,
+        visualCaption: `Transisi dari E0(60, 30) akibat pergeseran D0 → D1 dan pajak pada S0 → St.`,
+        svg: () => buildCurveSVG({
+          qMax: 150, pMax: 75, pLabel: 'P (jt)', qLabel: 'Q (unit)',
+          lines: [
+            { q1: 0, p1: 60, q2: 120, p2: 0, color: 'var(--data-context)', width: 2, label: 'D0', lq: 118, lp: 5 },
+            { q1: 0, p1: 72.5, q2: 145, p2: 0, color: 'var(--data-1)', width: 2.6, label: "D'1", lq: 138, lp: 6 },
+            { q1: 0, p1: 10, q2: 135, p2: 55, color: 'var(--data-context)', width: 2, label: 'S0', lq: 135, lp: 57 },
+            { q1: 0, p1: 15, q2: 135, p2: 60, color: 'var(--data-4)', width: 2.6, label: 'St', lq: 135, lp: 63 }
+          ],
+          hLines: [
+            { p: 30, qEnd: 60, label: 'P0=30', color: 'var(--on-surface-variant)' },
+            { p: 38, qEnd: 69, label: 'P1=?', color: 'var(--data-4)' }
+          ],
+          vLines: [
+            { q: 60, pEnd: 30, label: '60', color: 'var(--on-surface-variant)' },
+            { q: 69, pEnd: 38, label: 'Q1=?', color: 'var(--data-4)' }
+          ],
+          points: [
+            { q: 60, p: 30, label: 'E0', color: 'var(--on-surface-variant)', dx: -16, dy: -8 },
+            { q: 69, p: 38, label: 'E1', color: 'var(--data-4)', dx: 6, dy: -8 }
+          ]
+        }),
+        options: [
+          `Harga naik menjadi Rp35 juta dan kuantitas turun menjadi 50 unit.`,
+          `Harga naik dari Rp30 juta menjadi Rp33 juta, sedangkan kuantitas tetap 60 unit.`,
+          `Harga naik dari Rp30 juta menjadi Rp38 juta, sedangkan kuantitas naik dari 60 menjadi 69 unit.`,
+          `Harga turun dari Rp38 juta menjadi Rp30 juta, sedangkan kuantitas turun menjadi 55 unit.`,
+          `Harga naik menjadi Rp40 juta dan kuantitas naik menjadi 65 unit.`
+        ],
+        correct: 2, // C
+        explanation: `1) Keseimbangan awal: 120 − 2P = −30 + 3P → 150 = 5P → P0 = 30 (Rp30 juta) dan Q0 = 120 − 2(30) = 60 unit. 2) Fungsi penawaran setelah pajak t = 5: Qst = −30 + 3(P − 5) = −30 + 3P − 15 = −45 + 3P. 3) Keseimbangan baru dengan Q'd = 145 − 2P: 145 − 2P = −45 + 3P → 190 = 5P → P1 = 38 (Rp38 juta), dan Q1 = 145 − 2(38) = 69 unit. Jadi harga naik dari Rp30 juta ke Rp38 juta dan kuantitas naik dari 60 ke 69 unit.`
+      }
+    ];
+
+    // =========================================================================
+    // 3. APPLICATION STATE & SHIM PERSISTENCE
+    // =========================================================================
+    let appState = {
+      phase: 'landing', // 'landing' | 'quiz' | 'result'
+      name: '',
+      className: '',
+      currentIdx: 0,
+      answers: {}, // { [questionId]: optionIndex }
+      flagged: {}, // { [questionId]: true }
+      secondsLeft: TOTAL_SECONDS,
+      elapsedSeconds: 0,
+      violations: 0,
+      violationLog: [], // [{ count, time, reason }]
+      unlockedExplanations: false,
+      reviewFilter: 'all'
+    };
+
+    let timerInterval = null;
+    let audioCtx = null;
+    let lastViolationTs = 0;
+    let blurCheckTimeout = null;
+    let saveCounter = 0;
+
+    function getApi() {
+      return window.notebookAppApi || null;
+    }
+
+    async function persistState() {
+      const api = getApi();
+      if (api && typeof api.setAppState === 'function') {
+        try {
+          await api.setAppState(appState);
+        } catch (err) {
+          // Graceful fallback inside sandbox
+        }
+      }
+    }
+
+    // =========================================================================
+    // 4. WEB AUDIO SYNTHESIS — ANTI-CHEAT ALARM BELL
+    // =========================================================================
+    function ensureAudioContext() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return null;
+        if (!audioCtx) {
+          audioCtx = new AudioCtx();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        return audioCtx;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function playWarningBell() {
+      const ctx = ensureAudioContext();
+      if (!ctx) return;
+      try {
+        const now = ctx.currentTime;
+        // Urgent 3-pulse metallic school-bell / warning chime
+        for (let i = 0; i < 3; i++) {
+          const start = now + i * 0.28;
+          const osc1 = ctx.createOscillator();
+          const osc2 = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc1.type = 'triangle';
+          osc2.type = 'sine';
+          osc1.frequency.setValueAtTime(880, start);
+          osc2.frequency.setValueAtTime(1174.66, start); // D6 dissonance for urgency
+
+          gain.gain.setValueAtTime(0.001, start);
+          gain.gain.exponentialRampToValueAtTime(0.28, start + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.001, start + 0.23);
+
+          osc1.connect(gain);
+          osc2.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc1.start(start);
+          osc2.start(start);
+          osc1.stop(start + 0.24);
+          osc2.stop(start + 0.24);
+        }
+      } catch (e) {
+        // Ignore if browser blocks audio
+      }
+    }
+
+    function previewWarningSound() {
+      ensureAudioContext();
+      playWarningBell();
+      const msg = document.getElementById('sound-test-msg');
+      if (msg) {
+        msg.style.display = 'flex';
+        msg.textContent = `Bel peringatan berbunyi! Suara ini akan berbunyi otomatis jika peserta berpindah tab atau keluar dari halaman ujian.`;
+      }
+    }
+
+    // =========================================================================
+    // 5. ANTI-CHEATING TAB & WINDOW DETECTION
+    // =========================================================================
+    function formatClockTime(dateObj) {
+      const h = String(dateObj.getHours()).padStart(2, '0');
+      const m = String(dateObj.getMinutes()).padStart(2, '0');
+      const s = String(dateObj.getSeconds()).padStart(2, '0');
+      return `${h}:${m}:${s}`;
+    }
+
+    function recordViolation(reason) {
+      if (appState.phase !== 'quiz') return;
+      const nowMs = Date.now();
+      if (nowMs - lastViolationTs < 1200) return; // Debounce dual blur+visibility events
+      lastViolationTs = nowMs;
+
+      appState.violations += 1;
+      appState.violationLog.push({
+        count: appState.violations,
+        time: formatClockTime(new Date()),
+        reason: reason
+      });
+
+      playWarningBell();
+      updateViolationTelemetry();
+      showCheatBanner(reason);
+      persistState();
+    }
+
+    function showCheatBanner(reason) {
+      const banner = document.getElementById('cheat-banner');
+      const title = document.getElementById('cheat-banner-title');
+      const desc = document.getElementById('cheat-banner-desc');
+      if (title) {
+        title.textContent = `Peringatan Pengawas · Pelanggaran #${appState.violations} Tercatat`;
+      }
+      if (desc) {
+        desc.textContent = `Terdeteksi aktivitas: ${reason}. Pelanggaran ini dicatat permanen dan akan tampil pada rekap nilai akhir.`;
+      }
+      if (banner) {
+        banner.classList.add('is-visible');
+      }
+    }
+
+    function dismissCheatBanner() {
+      const banner = document.getElementById('cheat-banner');
+      if (banner) banner.classList.remove('is-visible');
+    }
+
+    function updateViolationTelemetry() {
+      const countEl = document.getElementById('violation-display');
+      const subEl = document.getElementById('violation-sub-text');
+      const tileEl = document.getElementById('violation-tile');
+      if (countEl) countEl.textContent = String(appState.violations);
+      if (subEl) {
+        subEl.textContent = appState.violations === 0
+          ? `Status bersih`
+          : `${appState.violations}× terdeteksi keluar`;
+      }
+      if (tileEl) {
+        if (appState.violations > 0) tileEl.classList.add('is-violation-alert');
+        else tileEl.classList.remove('is-violation-alert');
+      }
+    }
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden && appState.phase === 'quiz') {
+        recordViolation(`Berpindah tab atau meminimalkan browser`);
+      }
+    });
+
+    window.addEventListener('blur', function () {
+      if (appState.phase !== 'quiz') return;
+      if (blurCheckTimeout) clearTimeout(blurCheckTimeout);
+      blurCheckTimeout = setTimeout(function () {
+        if (appState.phase === 'quiz' && (!document.hasFocus() || document.hidden)) {
+          recordViolation(`Fokus jendela ujian berpindah ke aplikasi/jendela lain`);
+        }
+      }, 90);
+    });
+
+    // =========================================================================
+    // 6. VIEW SWITCHING & INITIALIZATION
+    // =========================================================================
+    function showView(phase) {
+      const views = ['landing', 'quiz', 'result'];
+      views.forEach((v) => {
+        const el = document.getElementById(`view-${v}`);
+        if (el) {
+          if (v === phase) el.classList.add('is-active');
+          else el.classList.remove('is-active');
+        }
+      });
+      const meta = document.getElementById('header-status-meta');
+      if (meta) {
+        if (phase === 'landing') meta.textContent = `30 Soal HOTS · 40 Menit`;
+        else if (phase === 'quiz') meta.textContent = `Ujian Berlangsung · Pengawasan Aktif`;
+        else meta.textContent = `Laporan Hasil & Analisis`;
+      }
+    }
+
+    function formatMMSS(sec) {
+      const s = Math.max(0, Math.floor(sec));
+      const mm = String(Math.floor(s / 60)).padStart(2, '0');
+      const ss = String(s % 60).padStart(2, '0');
+      return `${mm}:${ss}`;
+    }
+
+    // =========================================================================
+    // 7. LANDING & SESSION MANAGEMENT
+    // =========================================================================
+    function handleStartQuiz(e) {
+      if (e) e.preventDefault();
+      const nameInput = document.getElementById('input-name');
+      const classInput = document.getElementById('input-class');
+      const errBox = document.getElementById('start-error');
+
+      const nameVal = nameInput ? nameInput.value.trim() : '';
+      const classVal = classInput ? classInput.value.trim() : '';
+
+      if (nameInput) nameInput.classList.remove('is-error');
+      if (classInput) classInput.classList.remove('is-error');
+
+      if (!nameVal || nameVal.length < 2) {
+        if (nameInput) nameInput.classList.add('is-error');
+        if (errBox) {
+          errBox.style.display = 'flex';
+          errBox.textContent = `Nama lengkap belum diisi. Masukkan nama Anda minimal 2 karakter sebelum memulai ujian.`;
+        }
+        return;
+      }
+      if (!classVal) {
+        if (classInput) classInput.classList.add('is-error');
+        if (errBox) {
+          errBox.style.display = 'flex';
+          errBox.textContent = `Kelas belum diisi. Contoh pengisian: X-1 atau X IPS 2.`;
+        }
+        return;
+      }
+
+      if (errBox) errBox.style.display = 'none';
+
+      // Unlock AudioContext on user gesture
+      ensureAudioContext();
+
+      appState = {
+        phase: 'quiz',
+        name: nameVal,
+        className: classVal,
+        currentIdx: 0,
+        answers: {},
+        flagged: {},
+        secondsLeft: TOTAL_SECONDS,
+        elapsedSeconds: 0,
+        violations: 0,
+        violationLog: [],
+        unlockedExplanations: false,
+        reviewFilter: 'all'
+      };
+
+      enterQuizPhase();
+      persistState();
+    }
+
+    function resumeSavedSession() {
+      ensureAudioContext();
+      if (appState.phase === 'quiz') {
+        enterQuizPhase();
+      } else if (appState.phase === 'result') {
+        enterResultPhase();
+      }
+    }
+
+    function clearSavedSession(btn) {
+      if (btn && btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.textContent = `Klik Lagi untuk Hapus`;
+        return;
+      }
+      if (btn) {
+        btn.dataset.armed = 'false';
+        btn.textContent = `Hapus Sesi Lama`;
+      }
+      appState = {
+        phase: 'landing',
+        name: '',
+        className: '',
+        currentIdx: 0,
+        answers: {},
+        flagged: {},
+        secondsLeft: TOTAL_SECONDS,
+        elapsedSeconds: 0,
+        violations: 0,
+        violationLog: [],
+        unlockedExplanations: false,
+        reviewFilter: 'all'
+      };
+      const rb = document.getElementById('resume-banner');
+      if (rb) rb.style.display = 'none';
+      persistState();
+    }
+
+    // =========================================================================
+    // 8. QUIZ ENGINE & TIMER
+    // =========================================================================
+    function enterQuizPhase() {
+      showView('quiz');
+      const sName = document.getElementById('quiz-student-name');
+      const sClass = document.getElementById('quiz-student-class');
+      if (sName) sName.textContent = appState.name;
+      if (sClass) sClass.textContent = `Kelas ${appState.className}`;
+
+      dismissCheatBanner();
+      updateViolationTelemetry();
+      renderNavGrid();
+      renderCurrentQuestion();
+      startCountdownTimer();
+    }
+
+    function startCountdownTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      updateTimerUI();
+      timerInterval = setInterval(function () {
+        if (appState.phase !== 'quiz') {
+          clearInterval(timerInterval);
+          return;
+        }
+        if (appState.secondsLeft > 0) {
+          appState.secondsLeft -= 1;
+          appState.elapsedSeconds += 1;
+          updateTimerUI();
+          saveCounter += 1;
+          if (saveCounter >= 10) {
+            saveCounter = 0;
+            persistState();
+          }
+        }
+        if (appState.secondsLeft <= 0) {
+          clearInterval(timerInterval);
+          finalizeQuiz();
+        }
+      }, 1000);
+    }
+
+    function updateTimerUI() {
+      const disp = document.getElementById('timer-display');
+      const tile = document.getElementById('timer-tile');
+      const sub = document.getElementById('timer-status-text');
+      if (disp) disp.textContent = formatMMSS(appState.secondsLeft);
+      if (tile && sub) {
+        tile.classList.remove('is-timer-warn', 'is-timer-danger');
+        if (appState.secondsLeft <= 60) {
+          tile.classList.add('is-timer-danger');
+          sub.textContent = `Waktu hampir habis!`;
+        } else if (appState.secondsLeft <= 300) {
+          tile.classList.add('is-timer-warn');
+          sub.textContent = `Kurang dari 5 menit`;
+        } else {
+          sub.textContent = `Waktu berjalan`;
+        }
+      }
+    }
+
+    function renderCurrentQuestion() {
+      const q = QUESTIONS[appState.currentIdx];
+      if (!q) return;
+
+      const numBadge = document.getElementById('q-number-badge');
+      const diffBadge = document.getElementById('q-diff-badge');
+      const topicBadge = document.getElementById('q-topic-badge');
+      const statusBadge = document.getElementById('q-status-badge');
+      const stimEl = document.getElementById('q-stimulus');
+      const promptEl = document.getElementById('q-prompt');
+      const visTitle = document.getElementById('q-visual-title');
+      const visNote = document.getElementById('q-visual-note');
+      const visSvg = document.getElementById('q-visual-svg');
+      const visCap = document.getElementById('q-visual-caption');
+      const optsEl = document.getElementById('q-options');
+
+      const padNum = String(appState.currentIdx + 1).padStart(2, '0');
+      if (numBadge) numBadge.textContent = `SOAL ${padNum} / ${QUESTIONS.length}`;
+
+      if (diffBadge) {
+        diffBadge.textContent = q.difficulty.toUpperCase();
+        diffBadge.className = 'chip ' + (
+          q.difficulty === 'Mudah' ? 'chip-positive' :
+          q.difficulty === 'Sedang' ? 'chip-gold' : 'chip-error'
+        );
+      }
+      if (topicBadge) topicBadge.textContent = q.topicKey;
+
+      const chosen = appState.answers[q.id];
+      const isFlagged = !!appState.flagged[q.id];
+      if (statusBadge) {
+        if (isFlagged) statusBadge.textContent = `DITANDAI RAGU-RAGU`;
+        else if (chosen !== undefined) statusBadge.textContent = `TERJAWAB (${LETTERS[chosen]})`;
+        else statusBadge.textContent = `BELUM DIJAWAB`;
+      }
+
+      if (stimEl) stimEl.textContent = q.stimulus;
+      if (promptEl) promptEl.textContent = q.prompt;
+      if (visTitle) visTitle.textContent = q.visualTitle;
+      if (visNote) visNote.textContent = q.visualNote;
+      if (visSvg) visSvg.innerHTML = q.svg();
+      if (visCap) visCap.textContent = q.visualCaption;
+
+      if (optsEl) {
+        optsEl.innerHTML = q.options.map((optText, idx) => {
+          const selected = chosen === idx;
+          return `<button type="button" class="option-btn ${selected ? 'is-selected' : ''}" role="radio" aria-checked="${selected}" onclick="selectOption(${q.id}, ${idx})">
+            <span class="option-key">${LETTERS[idx]}</span>
+            <span class="option-text">${optText}</span>
+          </button>`;
+        }).join('');
+      }
+
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const btnFlag = document.getElementById('btn-flag');
+      if (btnPrev) btnPrev.disabled = appState.currentIdx === 0;
+      if (btnNext) {
+        btnNext.textContent = appState.currentIdx === QUESTIONS.length - 1 ? `Tinjau Soal 01 →` : `Berikutnya →`;
+      }
+      if (btnFlag) {
+        btnFlag.textContent = isFlagged ? `Hapus Tanda Ragu` : `Tandai Ragu-Ragu`;
+      }
+
+      updateProgressTelemetry();
+      renderNavGrid();
+
+      // Reset inline finish confirmation when navigating
+      const finishBtn = document.getElementById('btn-finish-quiz');
+      const warnMsg = document.getElementById('submit-warning-msg');
+      if (finishBtn) {
+        finishBtn.dataset.armed = 'false';
+        finishBtn.textContent = `Selesaikan & Kumpulkan`;
+      }
+      if (warnMsg) warnMsg.style.display = 'none';
+    }
+
+    function selectOption(qId, optIdx) {
+      appState.answers[qId] = optIdx;
+      renderCurrentQuestion();
+      persistState();
+    }
+
+    function toggleFlagCurrent() {
+      const q = QUESTIONS[appState.currentIdx];
+      if (!q) return;
+      if (appState.flagged[q.id]) delete appState.flagged[q.id];
+      else appState.flagged[q.id] = true;
+      renderCurrentQuestion();
+      persistState();
+    }
+
+    function goToQuestion(idx) {
+      if (idx < 0 || idx >= QUESTIONS.length) return;
+      appState.currentIdx = idx;
+      renderCurrentQuestion();
+      persistState();
+    }
+
+    function prevQuestion() {
+      if (appState.currentIdx > 0) goToQuestion(appState.currentIdx - 1);
+    }
+
+    function nextQuestion() {
+      if (appState.currentIdx < QUESTIONS.length - 1) goToQuestion(appState.currentIdx + 1);
+      else goToQuestion(0);
+    }
+
+    function updateProgressTelemetry() {
+      const answeredCount = Object.keys(appState.answers).length;
+      const flaggedCount = Object.keys(appState.flagged).length;
+      const progEl = document.getElementById('progress-display');
+      const flagEl = document.getElementById('flagged-display');
+      if (progEl) progEl.textContent = `${answeredCount} / ${QUESTIONS.length}`;
+      if (flagEl) flagEl.textContent = `${flaggedCount} ditandai ragu`;
+    }
+
+    function renderNavGrid() {
+      const grid = document.getElementById('nav-grid');
+      if (!grid) return;
+      grid.innerHTML = QUESTIONS.map((q, idx) => {
+        const isCurrent = idx === appState.currentIdx;
+        const isAnswered = appState.answers[q.id] !== undefined;
+        const isFlagged = !!appState.flagged[q.id];
+        let cls = 'nav-num';
+        if (isFlagged) cls += ' is-flagged';
+        else if (isAnswered) cls += ' is-answered';
+        if (isCurrent) cls += ' is-current';
+        return `<button type="button" class="${cls}" onclick="goToQuestion(${idx})" aria-label="Soal ${idx + 1}">${String(idx + 1).padStart(2, '0')}</button>`;
+      }).join('');
+    }
+
+    function finishQuizConfirm(btn) {
+      const answeredCount = Object.keys(appState.answers).length;
+      const remaining = QUESTIONS.length - answeredCount;
+      const warnMsg = document.getElementById('submit-warning-msg');
+
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.textContent = `Konfirmasi: Kumpulkan Sekarang`;
+        if (warnMsg) {
+          warnMsg.style.display = 'flex';
+          warnMsg.textContent = remaining > 0
+            ? `Masih ada ${remaining} soal belum dijawab. Klik sekali lagi untuk tetap mengumpulkan.`
+            : `Semua 30 soal sudah terjawab. Klik sekali lagi untuk menyelesaikan ujian.`;
+        }
+        return;
+      }
+
+      btn.dataset.armed = 'false';
+      finalizeQuiz();
+    }
+
+    function finalizeQuiz() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      appState.phase = 'result';
+      persistState();
+      enterResultPhase();
+    }
+
+    // =========================================================================
+    // 9. RESULTS RECAP, CLIPBOARD & LOCKED EXPLANATIONS
+    // =========================================================================
+    function computeResults() {
+      let correct = 0;
+      let wrong = 0;
+      let blank = 0;
+
+      const topicStats = {
+        'TP 12: Jenis & Struktur Pasar': { total: 0, correct: 0 },
+        'TP 16: Permintaan & Penawaran': { total: 0, correct: 0 },
+        'TP 16: Keseimbangan & Kebijakan': { total: 0, correct: 0 }
+      };
+      const diffStats = {
+        'Mudah': { total: 0, correct: 0 },
+        'Sedang': { total: 0, correct: 0 },
+        'Sulit': { total: 0, correct: 0 }
+      };
+
+      QUESTIONS.forEach((q) => {
+        const chosen = appState.answers[q.id];
+        const isCorrect = chosen !== undefined && chosen === q.correct;
+        if (chosen === undefined) blank += 1;
+        else if (isCorrect) correct += 1;
+        else wrong += 1;
+
+        if (topicStats[q.topicGroup]) {
+          topicStats[q.topicGroup].total += 1;
+          if (isCorrect) topicStats[q.topicGroup].correct += 1;
+        }
+        if (diffStats[q.difficulty]) {
+          diffStats[q.difficulty].total += 1;
+          if (isCorrect) diffStats[q.difficulty].correct += 1;
+        }
+      });
+
+      const score = Math.round((correct / QUESTIONS.length) * 100);
+      return { correct, wrong, blank, score, topicStats, diffStats };
+    }
+
+    function buildRecapText(res) {
+      const timeStr = formatMMSS(appState.elapsedSeconds);
+      const integrityStatus = appState.violations === 0
+        ? `Bersih (0 pelanggaran pindah tab)`
+        : `Perhatian (${appState.violations} kali pindah tab terdeteksi)`;
+      return [
+        `=== REKAP HASIL TKA EKONOMI KELAS X ===`,
+        `Materi      : Jenis Pasar, Permintaan/Penawaran & Keseimbangan`,
+        `Nama Siswa  : ${appState.name}`,
+        `Kelas       : ${appState.className}`,
+        `Skor Akhir  : ${res.score} / 100`,
+        `Rincian     : ${res.correct} Benar · ${res.wrong} Salah · ${res.blank} Kosong`,
+        `Waktu       : ${timeStr} (dari 40:00)`,
+        `Pelanggaran : ${appState.violations} kali`,
+        `Integritas  : ${integrityStatus}`
+      ].join('\n');
+    }
+
+    function enterResultPhase() {
+      showView('result');
+      const res = computeResults();
+
+      const idMeta = document.getElementById('res-identity-meta');
+      const predPill = document.getElementById('res-predicate-pill');
+      const scoreEl = document.getElementById('res-score');
+      const sumLine = document.getElementById('res-summary-line');
+      const corEl = document.getElementById('res-correct');
+      const wrgEl = document.getElementById('res-wrong');
+      const timeEl = document.getElementById('res-time');
+      const violEl = document.getElementById('res-violations');
+      const violBox = document.getElementById('res-violation-box');
+      const clipPre = document.getElementById('recap-clipboard-text');
+
+      if (idMeta) idMeta.textContent = `${appState.name} · Kelas ${appState.className}`;
+      if (scoreEl) scoreEl.textContent = String(res.score);
+      if (corEl) corEl.textContent = String(res.correct);
+      if (wrgEl) wrgEl.textContent = `${res.wrong + res.blank} (${res.blank} kosong)`;
+      if (timeEl) timeEl.textContent = formatMMSS(appState.elapsedSeconds);
+      if (violEl) violEl.textContent = `${appState.violations}×`;
+
+      if (violBox) {
+        violBox.classList.remove('is-good', 'is-bad');
+        violBox.classList.add(appState.violations === 0 ? 'is-good' : 'is-bad');
+      }
+
+      let predicate = `Perlu Pendalaman`;
+      let msg = `Tinjau kembali kurva permintaan-penawaran dan persamaan keseimbangan pasar bersama guru.`;
+      if (res.score >= 85) {
+        predicate = `Sangat Baik`;
+        msg = `Penguasaan konsep struktur pasar dan analisis matematis keseimbangan Anda sangat matang.`;
+      } else if (res.score >= 70) {
+        predicate = `Baik`;
+        msg = `Pemahaman dasar sudah kuat; tingkatkan ketelitian pada soal analisis HOTS pajak, subsidi, dan kebijakan harga.`;
+      } else if (res.score >= 55) {
+        predicate = `Cukup`;
+        msg = `Konsep dasar sebagian besar dipahami, namun perlu latihan tambahan pada penurunan fungsi dan pergeseran kurva.`;
+      }
+      if (predPill) predPill.textContent = predicate;
+      if (sumLine) sumLine.textContent = msg;
+
+      if (clipPre) clipPre.textContent = buildRecapText(res);
+
+      // Render Violation Log if > 0
+      const logCard = document.getElementById('violation-log-card');
+      const logBody = document.getElementById('violation-log-tbody');
+      if (logCard && logBody) {
+        if (appState.violationLog.length > 0) {
+          logCard.style.display = 'block';
+          logBody.innerHTML = appState.violationLog.map((entry) => `
+            <tr>
+              <td>#${entry.count}</td>
+              <td>${entry.time}</td>
+              <td>${entry.reason}</td>
+            </tr>
+          `).join('');
+        } else {
+          logCard.style.display = 'none';
+        }
+      }
+
+      // Render Breakdown Bars
+      renderBreakdownBars('topic-breakdown-list', res.topicStats, false);
+      renderBreakdownBars('diff-breakdown-list', res.diffStats, true);
+
+      // Render Lock State
+      syncUnlockUI();
+
+      // Scroll cleanly to top of recap
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderBreakdownBars(containerId, statsObj, isDiff) {
+      const el = document.getElementById(containerId);
+      if (!el) return;
+      el.innerHTML = Object.keys(statsObj).map((key, idx) => {
+        const item = statsObj[key];
+        const pct = item.total > 0 ? Math.round((item.correct / item.total) * 100) : 0;
+        const fillClass = isDiff
+          ? (idx === 0 ? 'is-pine' : idx === 1 ? 'is-gold' : '')
+          : (idx === 0 ? '' : idx === 1 ? 'is-gold' : 'is-pine');
+        return `<div>
+          <div class="bar-row-head">
+            <strong>${key}</strong>
+            <span class="dossier-meta">${item.correct} / ${item.total} Benar (${pct}%)</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill ${fillClass}" style="width: ${pct}%;"></div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    async function copyRecapToClipboard() {
+      const res = computeResults();
+      const text = buildRecapText(res);
+      const fb = document.getElementById('copy-feedback');
+
+      let copied = false;
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        try {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        } catch (e) {
+          copied = false;
+        }
+      }
+
+      if (!copied) {
+        // Fallback textarea copy inside sandboxed iframes
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try {
+          copied = document.execCommand('copy');
+        } catch (e) {
+          copied = false;
+        }
+        document.body.removeChild(ta);
+      }
+
+      if (fb) {
+        fb.style.display = 'flex';
+        if (copied) {
+          fb.className = 'inline-msg is-success';
+          fb.textContent = `Rekap nilai berhasil disalin ke clipboard! Anda dapat langsung menempelkannya (Ctrl+V) ke pesan guru.`;
+        } else {
+          fb.className = 'inline-msg is-warning';
+          fb.textContent = `Browser membatasi akses clipboard otomatis. Silakan blok dan salin teks pada kotak laporan di atas secara manual.`;
+        }
+      }
+    }
+
+    function downloadRecapTxt() {
+      const res = computeResults();
+      const text = buildRecapText(res);
+      const safeName = (appState.name || 'siswa').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      const api = getApi();
+      if (api && typeof api.triggerFileDownload === 'function') {
+        api.triggerFileDownload({
+          content: text,
+          contentType: 'text/plain',
+          encoding: 'UTF-8',
+          filename: `rekap-tka-ekonomi-${safeName}.txt`
+        });
+      }
+    }
+
+    function retakeQuiz(btn) {
+      if (btn && btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.textContent = `Konfirmasi: Mulai Ulang`;
+        return;
+      }
+      if (btn) {
+        btn.dataset.armed = 'false';
+        btn.textContent = `Ulangi Ujian Baru`;
+      }
+      appState = {
+        phase: 'landing',
+        name: appState.name,
+        className: appState.className,
+        currentIdx: 0,
+        answers: {},
+        flagged: {},
+        secondsLeft: TOTAL_SECONDS,
+        elapsedSeconds: 0,
+        violations: 0,
+        violationLog: [],
+        unlockedExplanations: false,
+        reviewFilter: 'all'
+      };
+      const nameInput = document.getElementById('input-name');
+      const classInput = document.getElementById('input-class');
+      if (nameInput) nameInput.value = appState.name;
+      if (classInput) classInput.value = appState.className;
+      const rb = document.getElementById('resume-banner');
+      if (rb) rb.style.display = 'none';
+      const fb = document.getElementById('copy-feedback');
+      if (fb) fb.style.display = 'none';
+
+      showView('landing');
+      persistState();
+    }
+
+    // =========================================================================
+    // 10. LOCKED EXPLANATIONS ('ILOVEYOU')
+    // =========================================================================
+    function handleUnlockExplanations(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('input-unlock-code');
+      const errBox = document.getElementById('unlock-error-msg');
+      const code = input ? input.value.trim() : '';
+
+      if (code === UNLOCK_KEY) {
+        if (errBox) errBox.style.display = 'none';
+        if (input) input.classList.remove('is-error');
+        appState.unlockedExplanations = true;
+        syncUnlockUI();
+        persistState();
+      } else {
+        if (input) input.classList.add('is-error');
+        if (errBox) {
+          errBox.style.display = 'flex';
+          errBox.textContent = `Kode akses tidak sesuai. Periksa penulisan huruf kapital (case-sensitive) atau mintalah kode akses kepada guru pengampu.`;
+        }
+      }
+    }
+
+    function syncUnlockUI() {
+      const pill = document.getElementById('lock-status-pill');
+      const lockedPanel = document.getElementById('locked-panel');
+      const unlockedPanel = document.getElementById('unlocked-panel');
+
+      if (appState.unlockedExplanations) {
+        if (pill) {
+          pill.textContent = `TERBUKA`;
+          pill.style.background = `var(--positive-bg)`;
+          pill.style.color = `var(--positive)`;
+        }
+        if (lockedPanel) lockedPanel.style.display = 'none';
+        if (unlockedPanel) unlockedPanel.style.display = 'block';
+        renderReviewList();
+      } else {
+        if (pill) {
+          pill.textContent = `TERKUNCI`;
+          pill.style.background = `var(--primary-container)`;
+          pill.style.color = `var(--on-primary-container)`;
+        }
+        if (lockedPanel) lockedPanel.style.display = 'block';
+        if (unlockedPanel) unlockedPanel.style.display = 'none';
+      }
+    }
+
+    function setReviewFilter(filterKey, btnEl) {
+      appState.reviewFilter = filterKey;
+      const bar = document.getElementById('review-filter-bar');
+      if (bar) {
+        const tabs = bar.querySelectorAll('.filter-tab');
+        tabs.forEach((t) => t.classList.remove('is-active'));
+      }
+      if (btnEl) btnEl.classList.add('is-active');
+      renderReviewList();
+    }
+
+    function renderReviewList() {
+      const container = document.getElementById('review-list');
+      if (!container) return;
+
+      const filtered = QUESTIONS.filter((q) => {
+        const chosen = appState.answers[q.id];
+        const isCorrect = chosen !== undefined && chosen === q.correct;
+        if (appState.reviewFilter === 'wrong') return !isCorrect;
+        if (appState.reviewFilter === 'correct') return isCorrect;
+        if (appState.reviewFilter === 'Sulit') return q.difficulty === 'Sulit';
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="inline-msg is-info">Tidak ada soal yang cocok dengan filter yang dipilih.</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map((q) => {
+        const chosen = appState.answers[q.id];
+        const isCorrect = chosen !== undefined && chosen === q.correct;
+        const chosenText = chosen !== undefined
+          ? `${LETTERS[chosen]}. ${q.options[chosen]}`
+          : `Tidak dijawab (kosong)`;
+        const correctText = `${LETTERS[q.correct]}. ${q.options[q.correct]}`;
+
+        return `<article class="review-item ${isCorrect ? 'is-correct' : 'is-wrong'}">
+          <div class="question-header">
+            <div class="question-meta-left">
+              <span class="index-num">SOAL ${String(q.id).padStart(2, '0')}</span>
+              <span class="chip ${q.difficulty === 'Mudah' ? 'chip-positive' : q.difficulty === 'Sedang' ? 'chip-gold' : 'chip-error'}">${q.difficulty}</span>
+              <span class="chip chip-petrol">${q.topicKey}</span>
+            </div>
+            <span class="chip ${isCorrect ? 'chip-positive' : 'chip-error'}">${isCorrect ? 'BENAR' : chosen === undefined ? 'KOSONG' : 'SALAH'}</span>
+          </div>
+
+          <p style="margin: 0 0 var(--space-sm) 0; color: var(--on-surface-variant); font-size: 0.92rem;">${q.stimulus}</p>
+          <h3 style="font-family: var(--font-headline); font-size: 1.1rem; margin: 0 0 var(--space-md) 0;">${q.prompt}</h3>
+
+          <div class="visual-figure" style="margin-bottom: var(--space-md);">
+            <div class="visual-figure-head">
+              <span class="visual-figure-title">${q.visualTitle}</span>
+              <span class="visual-figure-note">${q.visualNote}</span>
+            </div>
+            <div class="svg-wrap">${q.svg()}</div>
+          </div>
+
+          <div class="review-answers-compare">
+            <div class="ans-box ${isCorrect ? 'is-right' : 'is-wrong'}">
+              <div class="dossier-meta" style="margin-bottom: 2px; color: inherit;">Jawaban Anda</div>
+              <strong>${chosenText}</strong>
+            </div>
+            <div class="ans-box is-right">
+              <div class="dossier-meta" style="margin-bottom: 2px; color: inherit;">Kunci Jawaban Benar</div>
+              <strong>${correctText}</strong>
+            </div>
+          </div>
+
+          <div class="explanation-box">
+            <div class="dossier-meta" style="margin-bottom: 4px; color: var(--secondary);">Pembahasan Langkah demi Langkah</div>
+            ${q.explanation}
+          </div>
+        </article>`;
+      }).join('');
+    }
+
+    // =========================================================================
+    // 11. BOOTSTRAP & RESTORE SAVED STATE
+    // =========================================================================
+    async function initApp() {
+      const api = getApi();
+      let saved = null;
+      if (api && typeof api.getAppState === 'function') {
+        try {
+          saved = await window.notebookAppApi.getAppState();
+        } catch (err) {
+          saved = null;
+        }
+      }
+
+      if (saved && saved.name && (saved.phase === 'quiz' || saved.phase === 'result')) {
+        appState = Object.assign({}, appState, saved);
+        const nameInput = document.getElementById('input-name');
+        const classInput = document.getElementById('input-class');
+        if (nameInput) nameInput.value = appState.name;
+        if (classInput) classInput.value = appState.className;
+
+        const rb = document.getElementById('resume-banner');
+        const rInfo = document.getElementById('resume-info-text');
+        if (rb && rInfo) {
+          const answered = Object.keys(appState.answers || {}).length;
+          rInfo.textContent = appState.phase === 'quiz'
+            ? `${appState.name} (${appState.className}) — ${answered}/30 terjawab, sisa waktu ${formatMMSS(appState.secondsLeft)}.`
+            : `${appState.name} (${appState.className}) — Ujian telah selesai dikumpulkan.`;
+          rb.style.display = 'flex';
+        }
+      }
+
+      if (api && typeof api.notifyAppReady === 'function') {
+        api.notifyAppReady();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
